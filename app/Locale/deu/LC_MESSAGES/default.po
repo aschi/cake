@@ -1,0 +1,139 @@
+#Common
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Submit"
+msgstr "Speichern"
+
+msgid "View"
+msgstr "Ansehen"
+
+msgid "Edit"
+msgstr "Bearbeiten"
+
+msgid "Delete"
+msgstr "Löschen"
+
+msgid "Actions"
+msgstr "Aktionen"
+
+msgid "Modified"
+msgstr "Bearbeitet"
+
+msgid "Created"
+msgstr "Erstellt"
+
+msgid "next"
+msgstr "vorwärts"
+
+msgid "previous"
+msgstr "zurück"
+
+msgid "User"
+msgstr "Author"
+
+msgid "Image"
+msgstr "Bildpfad"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}"
+msgstr "Seite {:page} von {:pages}, zeige {:current} Einträge von total {:count}, beginnend bei Eintrag {:start}, endend mit Eintrag {:end}"
+
+#Issue
+msgid "Needed Money"
+msgstr "Benötigte Mittel"
+
+msgid "Description"
+msgstr "Beschreibung"
+
+#Voting
+msgid "Vote"
+msgstr "Abstimmen"
+
+msgid "Voting Result"
+msgstr "Abstimmungsresultat"
+
+msgid "Voting Start"
+msgstr "Beginn der Abstimmung"
+
+msgid "Voting End"
+msgstr "Ende der Abstimmung"
+
+#User
+msgid "List Users"
+msgstr "Benutzerübersicht anzeigen"
+
+msgid "New User"
+msgstr "Benutzer anlegen"
+
+msgid "Add User"
+msgstr "Benutzer anlegen"
+
+msgid "Edit User"
+msgstr "Benutzer bearbeiten"
+
+msgid "Password"
+msgstr "Passwort"
+
+msgid "Users"
+msgstr "Benutzerverwaltung"
+
+#Group
+msgid "Group"
+msgstr "Gruppe"
+
+msgid "New Group"
+msgstr "Benutzergruppe anlegen"
+
+msgid "List Groups"
+msgstr "Benutzergruppen anzeigen"
+
+#Player Profile
+msgid "Add Profile"
+msgstr "Profil erstellen"
+
+msgid "Edit Profile"
+msgstr "Profil bearbeiten"
+
+msgid "Add Player Profile"
+msgstr "Spielerprofil anlegen"
+
+msgid "Edit Player Profile"
+msgstr "Spielerprofil bearbeiten"
+
+#News
+msgid "Previewtext"
+msgstr "Vorschau Text"
+
+msgid "Newstext"
+msgstr "Neuigkeit"
+
+msgid "New News"
+msgstr "Neuigkeit erfassen"
+
+msgid "Add News"
+msgstr "News erstellen"
+
+msgid "List News"
+msgstr "Newsübersicht anzeigen"
+
+#Stories
+msgid "Stories"
+msgstr "Geschichten"
+
+msgid "List Stories"
+msgstr "Geschichten-Übersicht anzeigen"
+
+msgid "New Story"
+msgstr "Geschichte hinzufügen"
+
+msgid "Add Story"
+msgstr "Geschichte hinzufügen"
+
+msgid "Edit Story"
+msgstr "Geschichte bearbeiten"
+
+msgid "Storytext"
+msgstr "Geschichte"

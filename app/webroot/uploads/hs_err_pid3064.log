@@ -1,0 +1,574 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0xb3b0595c, pid=3064, tid=3076658880
+#
+# JRE version: 6.0_18-b18
+# Java VM: OpenJDK Client VM (14.0-b16 mixed mode, sharing linux-x86 )
+# Derivative: IcedTea6 1.8.13
+# Distribution: Debian GNU/Linux 6.0.4 (squeeze), package 6b18-1.8.13-0+squeeze2
+# Problematic frame:
+# C  [libgtk-x11-2.0.so.0+0x1f095c]
+#
+# If you would like to submit a bug report, please include
+# instructions how to reproduce the bug and visit:
+#   http://icedtea.classpath.org/bugzilla
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x08d44000):  JavaThread "main" [_thread_in_native, id=3064, stack(0xbfe3a000,0xbfe8a000)]
+
+siginfo:si_signo=SIGSEGV: si_errno=0, si_code=1 (SEGV_MAPERR), si_addr=0x00000030
+
+Registers:
+EAX=0x093cf110, EBX=0xb3ce79e8, ECX=0x00000050, EDX=0x00000000
+ESP=0xbfe86ad0, EBP=0xbfe86b18, ESI=0x093c4940, EDI=0x00000000
+EIP=0xb3b0595c, CR2=0x00000030, EFLAGS=0x00010286
+
+Top of Stack: (sp=0xbfe86ad0)
+0xbfe86ad0:   093b41b0 bfe86bf4 b4320a28 00000001
+0xbfe86ae0:   bfe86c84 08e6bef8 08e6bed0 b3ce79e8
+0xbfe86af0:   00000000 08e708e0 00000000 08e7b578
+0xbfe86b00:   00000008 b7095440 b3aeb2fb b3ce79e8
+0xbfe86b10:   093c4940 09352d80 bfe86ca8 b3b0708b
+0xbfe86b20:   00000000 093c4940 08e6bef8 00000000
+0xbfe86b30:   000000a8 b33355dc bfe86b78 b42842c8
+0xbfe86b40:   bfe86ba4 b333440f bfe86b78 b41a7c05 
+
+Instructions: (pc=0xb3b0595c)
+0xb3b0594c:   89 04 24 89 55 e0 e8 11 72 e6 ff 8b 55 e0 89 06
+0xb3b0595c:   8b 47 30 83 f8 01 0f 84 a2 01 00 00 0f 83 fa 00 
+
+Stack: [0xbfe3a000,0xbfe8a000],  sp=0xbfe86ad0,  free space=306k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libgtk-x11-2.0.so.0+0x1f095c]
+C  [libgtk-x11-2.0.so.0+0x1f208b]  gtk_text_layout_get_line_display+0xcbb
+C  [libgtk-x11-2.0.so.0+0x1f5962]
+C  [libgtk-x11-2.0.so.0+0x1efdcf]  gtk_text_layout_wrap+0x1f
+C  [libgtk-x11-2.0.so.0+0x1d2d50]
+C  [libgtk-x11-2.0.so.0+0x1d30b5]
+C  [libgtk-x11-2.0.so.0+0x1f439d]  gtk_text_layout_validate+0xed
+C  [libgtk-x11-2.0.so.0+0x200f0d]
+C  [libgdk-x11-2.0.so.0+0x162e8]
+C  [libglib-2.0.so.0+0x39381]
+C  [libglib-2.0.so.0+0x3b305]  g_main_context_dispatch+0x1d5
+C  [libglib-2.0.so.0+0x3efe8]
+C  [libglib-2.0.so.0+0x3f1c8]  g_main_context_iteration+0x68
+C  [libswt-pi-gtk-3740.so+0x37871]  Java_org_eclipse_swt_internal_gtk_OS__1g_1main_1context_1iteration+0x20
+j  org.eclipse.swt.internal.gtk.OS._g_main_context_iteration(IZ)Z+0
+j  org.eclipse.swt.internal.gtk.OS.g_main_context_iteration(IZ)Z+9
+j  org.eclipse.swt.widgets.Display.readAndDispatch()Z+36
+j  org.eclipse.jface.window.Window.runEventLoop(Lorg/eclipse/swt/widgets/Shell;)V+23
+j  org.eclipse.jface.window.Window.open()I+49
+j  org.eclipse.ui.internal.ide.ChooseWorkspaceDialog.prompt(Z)V+15
+j  com.aptana.rcp.IDEApplication.promptForWorkspace(Lorg/eclipse/swt/widgets/Shell;Lorg/eclipse/ui/internal/ide/ChooseWorkspaceData;Z)Ljava/net/URL;+15
+j  com.aptana.rcp.IDEApplication.checkInstanceLocation(Lorg/eclipse/swt/widgets/Shell;)Z+151
+j  com.aptana.rcp.IDEApplication.start(Lorg/eclipse/equinox/app/IApplicationContext;)Ljava/lang/Object;+44
+j  org.eclipse.equinox.internal.app.EclipseAppHandle.run(Ljava/lang/Object;)Ljava/lang/Object;+135
+j  org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(Ljava/lang/Object;)Ljava/lang/Object;+103
+j  org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(Ljava/lang/Object;)Ljava/lang/Object;+29
+j  org.eclipse.core.runtime.adaptor.EclipseStarter.run(Ljava/lang/Object;)Ljava/lang/Object;+149
+j  org.eclipse.core.runtime.adaptor.EclipseStarter.run([Ljava/lang/String;Ljava/lang/Runnable;)Ljava/lang/Object;+183
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x1e4a35]
+V  [libjvm.so+0x2c84d9]
+V  [libjvm.so+0x1e38cf]
+V  [libjvm.so+0x302759]
+V  [libjvm.so+0x303507]
+V  [libjvm.so+0x230192]
+C  [libjava.so+0x15a42]  Java_sun_reflect_NativeMethodAccessorImpl_invoke0+0x32
+j  sun.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+0
+j  sun.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+87
+j  sun.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+6
+j  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+161
+j  org.eclipse.equinox.launcher.Main.invokeFramework([Ljava/lang/String;[Ljava/net/URL;)V+211
+j  org.eclipse.equinox.launcher.Main.basicRun([Ljava/lang/String;)V+126
+j  org.eclipse.equinox.launcher.Main.run([Ljava/lang/String;)I+4
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x1e4a35]
+V  [libjvm.so+0x2c84d9]
+V  [libjvm.so+0x1e38cf]
+V  [libjvm.so+0x1ee84c]
+V  [libjvm.so+0x1fcddc]
+C  [eclipse_1407.so+0x83d9]  startJavaJNI+0x418
+C  [eclipse_1407.so+0x9878]  startJavaVM+0x24
+C  [eclipse_1407.so+0x314b]  run+0x59d
+C  [AptanaStudio3+0x10ee]
+C  [libc.so.6+0x16ca6]  __libc_start_main+0xe6
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  org.eclipse.swt.internal.gtk.OS._g_main_context_iteration(IZ)Z+0
+j  org.eclipse.swt.internal.gtk.OS.g_main_context_iteration(IZ)Z+9
+j  org.eclipse.swt.widgets.Display.readAndDispatch()Z+36
+j  org.eclipse.jface.window.Window.runEventLoop(Lorg/eclipse/swt/widgets/Shell;)V+23
+j  org.eclipse.jface.window.Window.open()I+49
+j  org.eclipse.ui.internal.ide.ChooseWorkspaceDialog.prompt(Z)V+15
+j  com.aptana.rcp.IDEApplication.promptForWorkspace(Lorg/eclipse/swt/widgets/Shell;Lorg/eclipse/ui/internal/ide/ChooseWorkspaceData;Z)Ljava/net/URL;+15
+j  com.aptana.rcp.IDEApplication.checkInstanceLocation(Lorg/eclipse/swt/widgets/Shell;)Z+151
+j  com.aptana.rcp.IDEApplication.start(Lorg/eclipse/equinox/app/IApplicationContext;)Ljava/lang/Object;+44
+j  org.eclipse.equinox.internal.app.EclipseAppHandle.run(Ljava/lang/Object;)Ljava/lang/Object;+135
+j  org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(Ljava/lang/Object;)Ljava/lang/Object;+103
+j  org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(Ljava/lang/Object;)Ljava/lang/Object;+29
+j  org.eclipse.core.runtime.adaptor.EclipseStarter.run(Ljava/lang/Object;)Ljava/lang/Object;+149
+j  org.eclipse.core.runtime.adaptor.EclipseStarter.run([Ljava/lang/String;Ljava/lang/Runnable;)Ljava/lang/Object;+183
+v  ~StubRoutines::call_stub
+j  sun.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+0
+j  sun.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+87
+j  sun.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+6
+j  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+161
+j  org.eclipse.equinox.launcher.Main.invokeFramework([Ljava/lang/String;[Ljava/net/URL;)V+211
+j  org.eclipse.equinox.launcher.Main.basicRun([Ljava/lang/String;)V+126
+j  org.eclipse.equinox.launcher.Main.run([Ljava/lang/String;)I+4
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x093d9400 JavaThread "Thread-0" [_thread_in_vm, id=3090, stack(0xb2f2f000,0xb2f80000)]
+  0x093cc800 JavaThread "SIGINT handler" daemon [_thread_blocked, id=3089, stack(0xb35cb000,0xb361c000)]
+  0x0925e800 JavaThread "Bundle File Closer" daemon [_thread_blocked, id=3088, stack(0xb32a8000,0xb32f9000)]
+  0x09024c00 JavaThread "Worker-JM" [_thread_blocked, id=3087, stack(0xb33af000,0xb3400000)]
+  0x08f06c00 JavaThread "[Timer] - Main Queue Handler" daemon [_thread_blocked, id=3086, stack(0xb357a000,0xb35cb000)]
+  0x08efd000 JavaThread "Framework Event Dispatcher" daemon [_thread_blocked, id=3084, stack(0xb3621000,0xb3672000)]
+  0x08ef0400 JavaThread "Start Level Event Dispatcher" daemon [_thread_blocked, id=3083, stack(0xb3672000,0xb36c3000)]
+  0x08ef0c00 JavaThread "State Data Manager" daemon [_thread_blocked, id=3082, stack(0xb36c3000,0xb3714000)]
+  0x08ecf400 JavaThread "Framework Active Thread" [_thread_blocked, id=3081, stack(0xb3714000,0xb3765000)]
+  0x08d7f400 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=3079, stack(0xb4405000,0xb4456000)]
+  0x08d7d800 JavaThread "CompilerThread0" daemon [_thread_blocked, id=3078, stack(0xb4456000,0xb44d7000)]
+  0x08d7bc00 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=3077, stack(0xb44d7000,0xb4528000)]
+  0x08d74800 JavaThread "Finalizer" daemon [_thread_blocked, id=3076, stack(0xb4528000,0xb4579000)]
+  0x08d73000 JavaThread "Reference Handler" daemon [_thread_blocked, id=3075, stack(0xb4579000,0xb45ca000)]
+=>0x08d44000 JavaThread "main" [_thread_in_native, id=3064, stack(0xbfe3a000,0xbfe8a000)]
+
+Other Threads:
+  0x08d71000 VMThread [stack: 0xb45ca000,0xb464b000] [id=3074]
+  0x08d82800 WatcherThread [stack: 0xb4384000,0xb4405000] [id=3080]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 2880K, used 2475K [0x63000000, 0x63310000, 0x65760000)
+  eden space 2624K,  90% used [0x63000000, 0x632532e8, 0x63290000)
+  from space 256K,  36% used [0x63290000, 0x632a7ac8, 0x632d0000)
+  to   space 256K,   0% used [0x632d0000, 0x632d0000, 0x63310000)
+ tenured generation   total 37824K, used 8858K [0x65760000, 0x67c50000, 0x83000000)
+   the space 37824K,  23% used [0x65760000, 0x66006a88, 0x66006c00, 0x67c50000)
+ compacting perm gen  total 12288K, used 9301K [0x83000000, 0x83c00000, 0x93000000)
+   the space 12288K,  75% used [0x83000000, 0x839155b0, 0x83915600, 0x83c00000)
+    ro space 8192K,  89% used [0x93000000, 0x93733300, 0x93733400, 0x93800000)
+    rw space 12288K,  59% used [0x93800000, 0x93f30560, 0x93f30600, 0x94400000)
+
+Dynamic libraries:
+08048000-0804c000 r-xp 00000000 08:01 1411636    /usr/local/Aptana_Studio_3/AptanaStudio3
+0804c000-0804d000 rw-p 00003000 08:01 1411636    /usr/local/Aptana_Studio_3/AptanaStudio3
+08d3b000-093f0000 rw-p 00000000 00:00 0          [heap]
+63000000-63310000 rwxp 00000000 00:00 0 
+63310000-65760000 rwxp 00000000 00:00 0 
+65760000-67c50000 rwxp 00000000 00:00 0 
+67c50000-83000000 rwxp 00000000 00:00 0 
+83000000-83c00000 rwxp 00000000 00:00 0 
+83c00000-93000000 rwxp 00000000 00:00 0 
+93000000-93734000 r--s 00001000 08:01 1647354    /usr/lib/jvm/java-6-openjdk/jre/lib/i386/client/classes.jsa
+93734000-93800000 rwxp 00000000 00:00 0 
+93800000-93f31000 rw-p 00735000 08:01 1647354    /usr/lib/jvm/java-6-openjdk/jre/lib/i386/client/classes.jsa
+93f31000-94400000 rwxp 00000000 00:00 0 
+94400000-944f9000 rw-p 00e66000 08:01 1647354    /usr/lib/jvm/java-6-openjdk/jre/lib/i386/client/classes.jsa
+944f9000-94800000 rwxp 00000000 00:00 0 
+94800000-94808000 r-xs 00f5f000 08:01 1647354    /usr/lib/jvm/java-6-openjdk/jre/lib/i386/client/classes.jsa
+94808000-94c00000 rwxp 00000000 00:00 0 
+b2f2f000-b2f32000 ---p 00000000 00:00 0 
+b2f32000-b2f80000 rw-p 00000000 00:00 0 
+b2f80000-b300f000 r--p 00000000 08:01 1384456    /usr/share/fonts/truetype/ttf-dejavu/DejaVuSans-Bold.ttf
+b300f000-b3018000 r-xp 00000000 08:01 886204     /home/adrian/.eclipse/org.eclipse.platform_3.7.0_1976029556/configuration/org.eclipse.osgi/bundles/232/1/.cp/libswt-atk-gtk-3740.so
+b3018000-b3019000 rw-p 00009000 08:01 886204     /home/adrian/.eclipse/org.eclipse.platform_3.7.0_1976029556/configuration/org.eclipse.osgi/bundles/232/1/.cp/libswt-atk-gtk-3740.so
+b3019000-b301e000 r-xp 00000000 08:01 1384787    /usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-gif.so
+b301e000-b301f000 rw-p 00004000 08:01 1384787    /usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-gif.so
+b301f000-b3023000 r-xp 00000000 08:01 1384781    /usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-png.so
+b3023000-b3024000 rw-p 00003000 08:01 1384781    /usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-png.so
+b3024000-b30bf000 r--p 00000000 08:01 1384451    /usr/share/fonts/truetype/ttf-dejavu/DejaVuSans.ttf
+b30bf000-b30c5000 r--s 00000000 08:01 1690742    /var/cache/fontconfig/945677eb7aeaf62f1d50efc3fb3ec7d8-le32d4.cache-3
+b30c5000-b30c8000 r--s 00000000 08:01 1690709    /var/cache/fontconfig/6eb3985aa4124903f6ff08ba781cd364-le32d4.cache-3
+b30c8000-b30cf000 r--s 00000000 08:01 1690708    /var/cache/fontconfig/6d41288fd70b0be22e8c3a91e032eec0-le32d4.cache-3
+b30cf000-b30d3000 r-xp 00000000 08:01 1351267    /usr/lib/libXtst.so.6.1.0
+b30d3000-b30d4000 rw-p 00004000 08:01 1351267    /usr/lib/libXtst.so.6.1.0
+b30d6000-b30d8000 r-xp 00000000 08:01 1384723    /usr/lib/pango/1.6.0/modules/pango-basic-fc.so
+b30d8000-b30d9000 rw-p 00001000 08:01 1384723    /usr/lib/pango/1.6.0/modules/pango-basic-fc.so
+b30d9000-b30e1000 r--s 00000000 08:01 1690699    /var/cache/fontconfig/d52a8644073d54c13679302ca1180695-le32d4.cache-3
+b30e1000-b30e5000 rwxp 00000000 00:00 0 
+b30e5000-b3140000 r-xp 00000000 08:01 886185     /home/adrian/.eclipse/org.eclipse.platform_3.7.0_1976029556/configuration/org.eclipse.osgi/bundles/232/1/.cp/libswt-pi-gtk-3740.so
+b3140000-b3142000 rw-p 0005a000 08:01 886185     /home/adrian/.eclipse/org.eclipse.platform_3.7.0_1976029556/configuration/org.eclipse.osgi/bundles/232/1/.cp/libswt-pi-gtk-3740.so
+b3142000-b3143000 rw-p 00000000 00:00 0 
+b3143000-b317f000 r--s 00629000 08:01 1663169    /usr/local/Aptana_Studio_3/plugins/com.ibm.icu_4.4.2.v20110823.jar
+b317f000-b31c6000 r--s 003b3000 08:01 1663080    /usr/local/Aptana_Studio_3/plugins/org.eclipse.ui.workbench_3.7.1.v20120104-1859.jar
+b31c6000-b31ee000 r--s 00214000 08:01 1663162    /usr/local/Aptana_Studio_3/plugins/org.eclipse.ui.ide_3.7.0.v20110928-1505.jar
+b31ee000-b3209000 r--s 00145000 08:01 1663142    /usr/local/Aptana_Studio_3/plugins/org.eclipse.team.ui_3.6.101.R37x_v20111109-0800.jar
+b320b000-b320c000 r--s 00000000 08:01 1690700    /var/cache/fontconfig/c05880de57d1f5e948fdfacc138775d9-le32d4.cache-3
+b320c000-b3216000 r--s 00088000 08:01 1663255    /usr/local/Aptana_Studio_3/plugins/org.eclipse.update.core_3.2.500.v20110330.jar
+b3216000-b3222000 r--s 00081000 08:01 1663236    /usr/local/Aptana_Studio_3/plugins/org.eclipse.ui.editors_3.7.0.v20110928-1504.jar
+b3222000-b322a000 r--s 00049000 08:01 1663160    /usr/local/Aptana_Studio_3/plugins/org.eclipse.ui.cheatsheets_3.4.100.v20110425.jar
+b322a000-b3233000 r--s 00058000 08:01 1663189    /usr/local/Aptana_Studio_3/plugins/org.eclipse.team.core_3.6.0.I20110525-0800.jar
+b3233000-b3247000 r--s 0021f000 08:01 1663184    /usr/local/Aptana_Studio_3/plugins/org.eclipse.swt.gtk.linux.x86_3.7.2.v3740f.jar
+b3247000-b325a000 r--s 006bc000 08:01 1663050    /usr/local/Aptana_Studio_3/plugins/org.eclipse.platform.doc.user_3.7.1.r372_v20111202.jar
+b325a000-b326d000 r--s 000dd000 08:01 1663074    /usr/local/Aptana_Studio_3/plugins/org.eclipse.jface.text_3.7.2.v20111213-1208.jar
+b326d000-b3276000 r--s 0003b000 08:01 1663138    /usr/local/Aptana_Studio_3/plugins/org.eclipse.jface.databinding_1.5.0.I20100907-0800.jar
+b3276000-b328a000 r--s 000f3000 08:01 1663141    /usr/local/Aptana_Studio_3/plugins/org.eclipse.jface_3.7.0.v20110928-1505.jar
+b328a000-b3293000 r--s 00087000 08:01 1663098    /usr/local/Aptana_Studio_3/plugins/org.eclipse.help.webapp_3.6.1.r37_20110929.jar
+b3293000-b329e000 r--s 00072000 08:01 1663055    /usr/local/Aptana_Studio_3/plugins/org.eclipse.help.ui_3.5.101.r37_20110819.jar
+b329e000-b32a8000 r--s 00074000 08:01 1663216    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.ui_2.1.1.v20120113-1346.jar
+b32a8000-b32ab000 ---p 00000000 00:00 0 
+b32ab000-b32f9000 rw-p 00000000 00:00 0 
+b32f9000-b32fb000 r--s 00000000 08:01 1690712    /var/cache/fontconfig/ea47318ec9849e1a71e80a5d69d13859-le32d4.cache-3
+b32fb000-b32fc000 r--s 00000000 08:01 1690711    /var/cache/fontconfig/e3fa16a14183b06aa45b3e009278fd14-le32d4.cache-3
+b32fc000-b3301000 r--s 0002a000 08:01 1663048    /usr/local/Aptana_Studio_3/plugins/org.eclipse.ui.browser_3.3.101.v20111019-1723.jar
+b3301000-b3305000 r--s 00035000 08:01 1663131    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.repository.tools_2.0.100.v20110815-1438.jar
+b3305000-b3309000 r--s 0001c000 08:01 1663228    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.repository_2.1.1.v20120113-1346.jar
+b3309000-b330b000 r--s 0000a000 08:01 1663186    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.reconciler.dropins_1.1.100.v20110815-1419.jar
+b330b000-b330d000 r--s 0000c000 08:01 1663072    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.operations_2.1.1.R37x_v20111111.jar
+b330d000-b3310000 r--s 0001a000 08:01 1663235    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.metadata.repository_1.2.0.v20110815-1419.jar
+b3310000-b3317000 r--s 0004c000 08:01 1663065    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.metadata_2.1.0.v20110815-1419.jar
+b3317000-b3319000 r--s 0000f000 08:01 1663150    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.jarprocessor_1.0.200.v20110815-1438.jar
+b3319000-b331b000 r--s 00005000 08:01 1663071    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.garbagecollector_1.0.200.v20110815-1419.jar
+b331b000-b331d000 r--s 00007000 08:01 1663111    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.extensionlocation_1.2.100.v20110815-1419.jar
+b331d000-b3321000 r--s 0002a000 08:01 1663266    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.engine_2.1.1.R37x_v20111003.jar
+b3321000-b3322000 r--s 00007000 08:01 1663038    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.directorywatcher_1.0.300.v20110815-1419.jar
+b3322000-b3323000 r--s 0000b000 08:01 1663190    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.director.app_1.0.300.v20111126-0153.jar
+b3323000-b3326000 r--s 00015000 08:01 1663106    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.director_2.1.1.v20111126-0211.jar
+b3326000-b3329000 r--s 0000f000 08:01 1663032    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.core_2.1.1.v20120113-1346.jar
+b3329000-b332a000 r--s 00006000 08:01 1663221    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.console_1.0.300.v20110815-1419.jar
+b332a000-b332d000 r--s 0001e000 08:01 1663157    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.artifact.repository_1.1.101.v20110815-1419.jar
+b332d000-b332f000 r--s 00000000 08:01 1690710    /var/cache/fontconfig/b5ea634b0fb353b8ea17632d1f9ef766-le32d4.cache-3
+b332f000-b3330000 r--s 00000000 08:01 1687991    /var/cache/fontconfig/4794a0821666d79190d59a36cb4f44b5-le32d4.cache-3
+b3330000-b3332000 r--s 00000000 08:01 1690702    /var/cache/fontconfig/e13b20fdb08344e0e664864cc2ede53d-le32d4.cache-3
+b3332000-b3335000 r-xp 00000000 08:01 886184     /home/adrian/.eclipse/org.eclipse.platform_3.7.0_1976029556/configuration/org.eclipse.osgi/bundles/232/1/.cp/libswt-gtk-3740.so
+b3335000-b3336000 rw-p 00002000 08:01 886184     /home/adrian/.eclipse/org.eclipse.platform_3.7.0_1976029556/configuration/org.eclipse.osgi/bundles/232/1/.cp/libswt-gtk-3740.so
+b3336000-b3337000 rw-p 00000000 00:00 0 
+b3337000-b333a000 r--s 00014000 08:01 1663054    /usr/local/Aptana_Studio_3/plugins/org.eclipse.core.jobs_3.5.101.v20120113-1953.jar
+b333a000-b333e000 r--s 00017000 08:01 1663177    /usr/local/Aptana_Studio_3/plugins/org.eclipse.core.commands_3.6.0.I20110111-0800.jar
+b333e000-b3340000 r--s 00018000 08:01 1663117    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.common_3.6.0.v20110523.jar
+b3340000-b3342000 r--s 00001000 08:01 1804408    /usr/local/Aptana_Studio_3/plugins/org.eclipse.ui.workbench.compatibility_3.2.100.I20110413-1600/compatibility.jar
+b3342000-b3345000 r--s 0002c000 08:01 1663187    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.ds_1.3.1.R37x_v20110701.jar
+b3345000-b3347000 r--s 00015000 08:01 1663239    /usr/local/Aptana_Studio_3/plugins/org.eclipse.core.runtime.compatibility_3.2.100.v20100505.jar
+b3347000-b3349000 r--s 00010000 08:01 1663085    /usr/local/Aptana_Studio_3/plugins/org.eclipse.core.runtime_3.7.0.v20110110.jar
+b3349000-b334b000 r--s 00000000 08:01 1663047    /usr/local/Aptana_Studio_3/plugins/com.aptana.rcp.studio_3.0.0.201208201020.jar
+b334b000-b334d000 r--s 00013000 08:01 1663225    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.app_1.3.100.v20110321.jar
+b334d000-b334e000 r--s 0025f000 08:01 1663274    /usr/local/Aptana_Studio_3/plugins/org.w3c.css_3.0.0.1308864319.jar
+b334e000-b3352000 r--s 0001f000 08:01 1663272    /usr/local/Aptana_Studio_3/plugins/org.sat4j.pb_2.3.0.v20110329.jar
+b3352000-b3357000 r--s 0002f000 08:01 1663158    /usr/local/Aptana_Studio_3/plugins/org.sat4j.core_2.3.0.v20110329.jar
+b3357000-b335a000 r--s 0000e000 08:01 1663070    /usr/local/Aptana_Studio_3/plugins/org.radrails.rails.ui_3.0.2.1340741978.jar
+b335a000-b335b000 r--s 00001000 08:01 1663113    /usr/local/Aptana_Studio_3/plugins/org.radrails.rails.core_3.0.2.1337406325.jar
+b335b000-b3368000 r--s 00113000 08:01 1663263    /usr/local/Aptana_Studio_3/plugins/org.mozilla.rhino_1.7.4.1340809267.jar
+b3368000-b336c000 r--s 0002c000 08:01 1663145    /usr/local/Aptana_Studio_3/plugins/org.mortbay.jetty.util_6.1.23.v201012071420.jar
+b336c000-b3373000 r--s 00082000 08:01 1663094    /usr/local/Aptana_Studio_3/plugins/org.mortbay.jetty.server_6.1.23.v201012071420.jar
+b3373000-b3389000 r--s 0010b000 08:01 1663270    /usr/local/Aptana_Studio_3/plugins/org.jrubyparser_1.0.1.1315951256.jar
+b3389000-b3392000 r--s 00073000 08:01 1663091    /usr/local/Aptana_Studio_3/plugins/org.eclipse.update.ui_3.2.300.v20100512.jar
+b3392000-b3394000 r--s 00001000 08:01 1663245    /usr/local/Aptana_Studio_3/plugins/org.eclipse.update.core.linux_3.2.200.v20100512.jar
+b3394000-b3396000 r--s 00017000 08:01 1663119    /usr/local/Aptana_Studio_3/plugins/org.eclipse.update.configurator_3.3.100.v20100512.jar
+b3396000-b33a2000 r--s 00083000 08:01 1663154    /usr/local/Aptana_Studio_3/plugins/org.eclipse.ui.workbench.texteditor_3.7.0.v20110928-1504.jar
+b33a2000-b33a6000 r--s 00016000 08:01 1663253    /usr/local/Aptana_Studio_3/plugins/org.eclipse.ui.views.properties.tabbed_3.5.200.v20110928-1505.jar
+b33a6000-b33aa000 r--s 00013000 08:01 1663075    /usr/local/Aptana_Studio_3/plugins/org.eclipse.ui.views_3.6.0.v20110928-1505.jar
+b33aa000-b33ad000 r--s 00016000 08:01 1663128    /usr/local/Aptana_Studio_3/plugins/org.eclipse.ui.presentations.r21_3.2.200.I20100517-1500.jar
+b33ad000-b33af000 r--s 0000a000 08:01 1663123    /usr/local/Aptana_Studio_3/plugins/org.eclipse.ui.net_1.2.100.v20111208-1155.jar
+b33af000-b33b2000 ---p 00000000 00:00 0 
+b33b2000-b3400000 rw-p 00000000 00:00 0 
+b3400000-b3484000 rw-p 00000000 00:00 0 
+b3484000-b3500000 ---p 00000000 00:00 0 
+b3500000-b3504000 r--s 0001a000 08:01 1663203    /usr/local/Aptana_Studio_3/plugins/org.eclipse.ui.navigator.resources_3.4.300.v20110928-1505.jar
+b3504000-b350d000 r--s 0005a000 08:01 1663114    /usr/local/Aptana_Studio_3/plugins/org.eclipse.ui.navigator_3.5.101.v20120106-1355.jar
+b350d000-b3513000 r--s 00046000 08:01 1663165    /usr/local/Aptana_Studio_3/plugins/org.eclipse.ui.intro_3.4.100.v20110425.jar
+b3513000-b3515000 r--s 0000e000 08:01 1663230    /usr/local/Aptana_Studio_3/plugins/org.eclipse.ui.ide.application_1.0.300.I20110306-2000.jar
+b3515000-b351b000 r--s 00044000 08:01 1663057    /usr/local/Aptana_Studio_3/plugins/org.eclipse.ui.forms_3.5.101.v20111011-1919.jar
+b351b000-b351f000 r--s 0001e000 08:01 1663151    /usr/local/Aptana_Studio_3/plugins/org.eclipse.ui.externaltools_3.2.0.v20111007_r372.jar
+b351f000-b3523000 r--s 00024000 08:01 1663132    /usr/local/Aptana_Studio_3/plugins/org.eclipse.ui.console_3.5.100.v20111007_r372.jar
+b3523000-b3528000 r--s 00021000 08:01 1663089    /usr/local/Aptana_Studio_3/plugins/org.eclipse.ui_3.7.0.v20110928-1505.jar
+b3528000-b352d000 r--s 00038000 08:01 1663222    /usr/local/Aptana_Studio_3/plugins/org.eclipse.text_3.5.101.v20110928-1504.jar
+b352d000-b3537000 r--s 00069000 08:01 1663267    /usr/local/Aptana_Studio_3/plugins/org.eclipse.search_3.7.0.v20110928-1504.jar
+b3537000-b3538000 r--s 00003000 08:01 1663126    /usr/local/Aptana_Studio_3/plugins/org.eclipse.rcp_3.7.2.v201202080800.jar
+b3538000-b3542000 r--s 00065000 08:01 1663211    /usr/local/Aptana_Studio_3/plugins/org.eclipse.ltk.ui.refactoring_3.6.0.v20110928-1453.jar
+b3542000-b3549000 r--s 00048000 08:01 1663273    /usr/local/Aptana_Studio_3/plugins/org.eclipse.ltk.core.refactoring_3.5.201.r372_v20111101-0700.jar
+b3549000-b354a000 r--s 00002000 08:01 1810815    /usr/local/Aptana_Studio_3/plugins/org.eclipse.core.runtime.compatibility.registry_3.5.0.v20110505/runtime_registry_compatibility.jar
+b354a000-b354e000 r--s 00029000 08:01 1663205    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.registry_3.5.101.R37x_v20110810-1611.jar
+b354e000-b354f000 r--s 00005000 08:01 1663115    /usr/local/Aptana_Studio_3/plugins/org.eclipse.osgi.util_3.2.200.v20110110.jar
+b354f000-b3552000 r--s 0000f000 08:01 1663201    /usr/local/Aptana_Studio_3/plugins/org.eclipse.osgi.services_3.3.0.v20110513.jar
+b3552000-b355a000 r--s 0005e000 08:01 1663206    /usr/local/Aptana_Studio_3/plugins/org.eclipse.help.base_3.6.2.v201202080800.jar
+b355a000-b355e000 r--s 0003b000 08:01 1663279    /usr/local/Aptana_Studio_3/plugins/org.eclipse.help_3.5.100.v20110426.jar
+b355e000-b3560000 r--s 00011000 08:01 1663034    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.util_1.0.300.v20110502.jar
+b3560000-b3566000 r--s 0002f000 08:01 1663265    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.security.ui_1.1.0.v20101004.jar
+b3566000-b3569000 r--s 00017000 08:01 1663093    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.security_1.1.1.R37x_v20110822-1018.jar
+b3569000-b356c000 r--s 00019000 08:01 1663174    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.preferences_3.4.2.v20120111-2020.jar
+b356c000-b356e000 r--s 00013000 08:01 1663191    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.updatesite_1.0.300.v20110815-1419.jar
+b356e000-b3570000 r--s 00003000 08:01 1663129    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.updatechecker_1.1.200.v20110815-1419.jar
+b3570000-b3572000 r--s 0000d000 08:01 1663233    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.ui.sdk.scheduler_1.0.100.v20110815-1419.jar
+b3572000-b3574000 r--s 00009000 08:01 1663066    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.ui.sdk_1.0.200.v20110815-1419.jar
+b3574000-b3578000 r--s 00019000 08:01 1663249    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.ui.importexport_1.0.1.R37x_v20111103.jar
+b3578000-b357a000 r--s 00008000 08:01 1663153    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.transport.ecf_1.0.0.v20111128-0624.jar
+b357a000-b357d000 ---p 00000000 00:00 0 
+b357d000-b35cb000 rw-p 00000000 00:00 0 
+b35cb000-b35ce000 ---p 00000000 00:00 0 
+b35ce000-b361c000 rw-p 00000000 00:00 0 
+b361c000-b361e000 r--s 0000b000 08:01 1663092    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.touchpoint.natives_1.0.300.v20110815-1419.jar
+b361e000-b361f000 r--s 00001000 08:01 1663217    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.ql_2.0.100.v20110815-1419.jar
+b361f000-b3621000 r--s 00017000 08:01 1663161    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.publisher_1.2.0.v20110815-1419.jar
+b3621000-b3624000 ---p 00000000 00:00 0 
+b3624000-b3672000 rw-p 00000000 00:00 0 
+b3672000-b3675000 ---p 00000000 00:00 0 
+b3675000-b36c3000 rw-p 00000000 00:00 0 
+b36c3000-b36c6000 ---p 00000000 00:00 0 
+b36c6000-b3714000 rw-p 00000000 00:00 0 
+b3714000-b3717000 ---p 00000000 00:00 0 
+b3717000-b3765000 rw-p 00000000 00:00 0 
+b3765000-b3779000 r-xp 00000000 08:01 1647531    /usr/lib/jvm/java-6-openjdk/jre/lib/i386/libnet.so
+b3779000-b377a000 rw-p 00013000 08:01 1647531    /usr/lib/jvm/java-6-openjdk/jre/lib/i386/libnet.so
+b377a000-b378e000 r--s 0013a000 08:01 1663109    /usr/local/Aptana_Studio_3/plugins/org.eclipse.osgi_3.7.2.v20120110-1415.jar
+b378e000-b37ee000 rw-s 00000000 00:04 7929879    /SYSV00000000 (deleted)
+b37ee000-b3865000 rw-p 00000000 00:00 0 
+b3865000-b388f000 r-xp 00000000 08:01 1404984    /usr/lib/gtk-2.0/2.10.0/engines/libclearlooks.so
+b388f000-b3890000 rw-p 00029000 08:01 1404984    /usr/lib/gtk-2.0/2.10.0/engines/libclearlooks.so
+b3890000-b3897000 r-xp 00000000 08:01 1350191    /usr/lib/libltdl.so.7.2.1
+b3897000-b3898000 rw-p 00007000 08:01 1350191    /usr/lib/libltdl.so.7.2.1
+b3898000-b38a5000 r-xp 00000000 08:01 1350195    /usr/lib/libtdb.so.1.2.1
+b38a5000-b38a6000 rw-p 0000c000 08:01 1350195    /usr/lib/libtdb.so.1.2.1
+b38a6000-b38ab000 r-xp 00000000 08:01 1350193    /usr/lib/libogg.so.0.7.0
+b38ab000-b38ac000 rw-p 00004000 08:01 1350193    /usr/lib/libogg.so.0.7.0
+b38ac000-b38d3000 r-xp 00000000 08:01 1350197    /usr/lib/libvorbis.so.0.4.4
+b38d3000-b38d4000 rw-p 00026000 08:01 1350197    /usr/lib/libvorbis.so.0.4.4
+b38d4000-b38e2000 r-xp 00000000 08:01 1350203    /usr/lib/libcanberra.so.0.2.3
+b38e2000-b38e3000 rw-p 0000e000 08:01 1350203    /usr/lib/libcanberra.so.0.2.3
+b38e3000-b38e7000 r-xp 00000000 08:01 1350456    /usr/lib/libcanberra-gtk.so.0.1.6
+b38e7000-b38e8000 rw-p 00003000 08:01 1350456    /usr/lib/libcanberra-gtk.so.0.1.6
+b38e8000-b38eb000 r--s 0001c000 08:01 1663212    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.p2.touchpoint.eclipse_2.1.1.v20110815-1419.jar
+b38eb000-b38ec000 r--s 00007000 08:01 1663082    /usr/local/Aptana_Studio_3/plugins/org.eclipse.update.scheduler_3.2.300.v20100512.jar
+b38ec000-b38ed000 r--s 00004000 08:01 1663278    /usr/local/Aptana_Studio_3/plugins/org.eclipse.swt_3.7.2.v3740f.jar
+b38ed000-b38f4000 r-xp 00000000 08:01 1647524    /usr/lib/jvm/java-6-openjdk/jre/lib/i386/libnio.so
+b38f4000-b38f5000 rw-p 00006000 08:01 1647524    /usr/lib/jvm/java-6-openjdk/jre/lib/i386/libnio.so
+b38f5000-b38f8000 r-xp 00000000 08:01 1384778    /usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-bmp.so
+b38f8000-b38f9000 rw-p 00002000 08:01 1384778    /usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-bmp.so
+b38f9000-b3913000 r-xp 00000000 08:01 1350035    /usr/lib/libatk-1.0.so.0.3009.1
+b3913000-b3915000 rw-p 00019000 08:01 1350035    /usr/lib/libatk-1.0.so.0.3009.1
+b3915000-b3ce4000 r-xp 00000000 08:01 1350450    /usr/lib/libgtk-x11-2.0.so.0.2000.1
+b3ce4000-b3cea000 rw-p 003cf000 08:01 1350450    /usr/lib/libgtk-x11-2.0.so.0.2000.1
+b3cea000-b3ceb000 rw-p 00000000 00:00 0 
+b3ceb000-b3cef000 r-xp 00000000 08:01 1344630    /usr/lib/libXdmcp.so.6.0.0
+b3cef000-b3cf0000 rw-p 00003000 08:01 1344630    /usr/lib/libXdmcp.so.6.0.0
+b3cf0000-b3cf2000 r-xp 00000000 08:01 1344628    /usr/lib/libXau.so.6.0.0
+b3cf2000-b3cf3000 rw-p 00001000 08:01 1344628    /usr/lib/libXau.so.6.0.0
+b3cf3000-b3d0b000 r-xp 00000000 08:01 1344632    /usr/lib/libxcb.so.1.1.0
+b3d0b000-b3d0c000 rw-p 00017000 08:01 1344632    /usr/lib/libxcb.so.1.1.0
+b3d0c000-b3d12000 r-xp 00000000 08:01 1350050    /usr/lib/libxcb-render.so.0.0.0
+b3d12000-b3d13000 rw-p 00005000 08:01 1350050    /usr/lib/libxcb-render.so.0.0.0
+b3d13000-b3d16000 r-xp 00000000 08:01 1350052    /usr/lib/libxcb-render-util.so.0.0.0
+b3d16000-b3d17000 rw-p 00002000 08:01 1350052    /usr/lib/libxcb-render-util.so.0.0.0
+b3d17000-b3d3a000 r-xp 00000000 08:01 1556504    /lib/libpng12.so.0.44.0
+b3d3a000-b3d3b000 rw-p 00022000 08:01 1556504    /lib/libpng12.so.0.44.0
+b3d3b000-b3d92000 r-xp 00000000 08:01 1348007    /usr/lib/libpixman-1.so.0.16.4
+b3d92000-b3d94000 rw-p 00057000 08:01 1348007    /usr/lib/libpixman-1.so.0.16.4
+b3d94000-b3db8000 r-xp 00000000 08:01 1344057    /usr/lib/libexpat.so.1.5.2
+b3db8000-b3dba000 rw-p 00024000 08:01 1344057    /usr/lib/libexpat.so.1.5.2
+b3dba000-b3dd3000 r-xp 00000000 08:01 1556519    /lib/libselinux.so.1
+b3dd3000-b3dd4000 r--p 00018000 08:01 1556519    /lib/libselinux.so.1
+b3dd4000-b3dd5000 rw-p 00019000 08:01 1556519    /lib/libselinux.so.1
+b3dd5000-b3de5000 r-xp 00000000 08:01 1574488    /lib/i686/cmov/libresolv-2.11.3.so
+b3de5000-b3de6000 r--p 00010000 08:01 1574488    /lib/i686/cmov/libresolv-2.11.3.so
+b3de6000-b3de7000 rw-p 00011000 08:01 1574488    /lib/i686/cmov/libresolv-2.11.3.so
+b3de7000-b3de9000 rw-p 00000000 00:00 0 
+b3de9000-b3e5d000 r-xp 00000000 08:01 1348003    /usr/lib/libfreetype.so.6.6.0
+b3e5d000-b3e61000 rw-p 00073000 08:01 1348003    /usr/lib/libfreetype.so.6.6.0
+b3e61000-b3e86000 r-xp 00000000 08:01 1350394    /usr/lib/libpangoft2-1.0.so.0.2800.3
+b3e86000-b3e87000 rw-p 00025000 08:01 1350394    /usr/lib/libpangoft2-1.0.so.0.2800.3
+b3e87000-b3e9f000 r-xp 00000000 08:01 1350448    /usr/lib/libgdk_pixbuf-2.0.so.0.2000.1
+b3e9f000-b3ea0000 rw-p 00017000 08:01 1350448    /usr/lib/libgdk_pixbuf-2.0.so.0.2000.1
+b3ea0000-b3fb9000 r-xp 00000000 08:01 1344636    /usr/lib/libX11.so.6.3.0
+b3fb9000-b3fbd000 rw-p 00118000 08:01 1344636    /usr/lib/libX11.so.6.3.0
+b3fbd000-b4030000 r-xp 00000000 08:01 1350054    /usr/lib/libcairo.so.2.10800.10
+b4030000-b4032000 rw-p 00073000 08:01 1350054    /usr/lib/libcairo.so.2.10800.10
+b4032000-b4036000 r-xp 00000000 08:01 1348009    /usr/lib/libXfixes.so.3.1.0
+b4036000-b4037000 rw-p 00003000 08:01 1348009    /usr/lib/libXfixes.so.3.1.0
+b4037000-b4039000 r-xp 00000000 08:01 1348013    /usr/lib/libXdamage.so.1.1.0
+b4039000-b403a000 rw-p 00001000 08:01 1348013    /usr/lib/libXdamage.so.1.1.0
+b403a000-b403c000 r-xp 00000000 08:01 1348011    /usr/lib/libXcomposite.so.1.0.0
+b403c000-b403d000 rw-p 00001000 08:01 1348011    /usr/lib/libXcomposite.so.1.0.0
+b403d000-b4045000 r-xp 00000000 08:01 1350408    /usr/lib/libXcursor.so.1.0.2
+b4045000-b4046000 rw-p 00007000 08:01 1350408    /usr/lib/libXcursor.so.1.0.2
+b4046000-b404c000 r-xp 00000000 08:01 1348019    /usr/lib/libXrandr.so.2.2.0
+b404c000-b404d000 rw-p 00005000 08:01 1348019    /usr/lib/libXrandr.so.2.2.0
+b404d000-b4059000 r-xp 00000000 08:01 1843668    /usr/lib/libXi.so.6.1.0
+b4059000-b405a000 rw-p 0000c000 08:01 1843668    /usr/lib/libXi.so.6.1.0
+b405a000-b405c000 r-xp 00000000 08:01 1350412    /usr/lib/libXinerama.so.1.0.0
+b405c000-b405d000 rw-p 00001000 08:01 1350412    /usr/lib/libXinerama.so.1.0.0
+b405d000-b4065000 r-xp 00000000 08:01 1348017    /usr/lib/libXrender.so.1.3.0
+b4065000-b4066000 rw-p 00007000 08:01 1348017    /usr/lib/libXrender.so.1.3.0
+b4066000-b4074000 r-xp 00000000 08:01 1344638    /usr/lib/libXext.so.6.4.0
+b4074000-b4075000 rw-p 0000d000 08:01 1344638    /usr/lib/libXext.so.6.4.0
+b4075000-b40a2000 r-xp 00000000 08:01 1350048    /usr/lib/libfontconfig.so.1.4.4
+b40a2000-b40a4000 rw-p 0002c000 08:01 1350048    /usr/lib/libfontconfig.so.1.4.4
+b40a4000-b413e000 r-xp 00000000 08:01 1350027    /usr/lib/libgio-2.0.so.0.2400.2
+b413e000-b4140000 rw-p 0009a000 08:01 1350027    /usr/lib/libgio-2.0.so.0.2400.2
+b4140000-b4182000 r-xp 00000000 08:01 1350396    /usr/lib/libpango-1.0.so.0.2800.3
+b4182000-b4184000 rw-p 00041000 08:01 1350396    /usr/lib/libpango-1.0.so.0.2800.3
+b4184000-b418e000 r-xp 00000000 08:01 1350398    /usr/lib/libpangocairo-1.0.so.0.2800.3
+b418e000-b418f000 rw-p 0000a000 08:01 1350398    /usr/lib/libpangocairo-1.0.so.0.2800.3
+b418f000-b4222000 r-xp 00000000 08:01 1350451    /usr/lib/libgdk-x11-2.0.so.0.2000.1
+b4222000-b4225000 rw-p 00093000 08:01 1350451    /usr/lib/libgdk-x11-2.0.so.0.2000.1
+b4225000-b4257000 r-xp 00000000 08:01 1556500    /lib/libpcre.so.3.12.1
+b4257000-b4258000 rw-p 00031000 08:01 1556500    /lib/libpcre.so.3.12.1
+b4258000-b4320000 r-xp 00000000 08:01 1556502    /lib/libglib-2.0.so.0.2400.2
+b4320000-b4321000 rw-p 000c8000 08:01 1556502    /lib/libglib-2.0.so.0.2400.2
+b4321000-b4325000 r-xp 00000000 08:01 1350028    /usr/lib/libgthread-2.0.so.0.2400.2
+b4325000-b4326000 rw-p 00003000 08:01 1350028    /usr/lib/libgthread-2.0.so.0.2400.2
+b4326000-b4363000 r-xp 00000000 08:01 1350029    /usr/lib/libgobject-2.0.so.0.2400.2
+b4363000-b4364000 rw-p 0003d000 08:01 1350029    /usr/lib/libgobject-2.0.so.0.2400.2
+b4364000-b4366000 r--s 00014000 08:01 1663198    /usr/local/Aptana_Studio_3/plugins/org.eclipse.jsch.ui_1.1.300.R37x_v20111201-1600.jar
+b4366000-b4367000 r--s 00004000 08:01 1663156    /usr/local/Aptana_Studio_3/plugins/org.eclipse.help.appserver_3.1.400.v20110425.jar
+b4367000-b436e000 r-xp 00000000 08:01 1350200    /usr/lib/libvorbisfile.so.3.3.2
+b436e000-b436f000 rw-p 00006000 08:01 1350200    /usr/lib/libvorbisfile.so.3.3.2
+b436f000-b4374000 r-xp 00000000 08:01 1452480    /usr/lib/gtk-2.0/modules/libcanberra-gtk-module.so
+b4374000-b4375000 rw-p 00004000 08:01 1452480    /usr/lib/gtk-2.0/modules/libcanberra-gtk-module.so
+b4375000-b437c000 r--s 00102000 08:01 1485368    /usr/lib/jvm/java-6-openjdk/jre/lib/resources.jar
+b437c000-b4384000 r--s 00066000 08:01 1428212    /usr/share/java/gnome-java-bridge.jar
+b4384000-b4385000 ---p 00000000 00:00 0 
+b4385000-b4405000 rw-p 00000000 00:00 0 
+b4405000-b4408000 ---p 00000000 00:00 0 
+b4408000-b4456000 rw-p 00000000 00:00 0 
+b4456000-b4459000 ---p 00000000 00:00 0 
+b4459000-b44d7000 rw-p 00000000 00:00 0 
+b44d7000-b44da000 ---p 00000000 00:00 0 
+b44da000-b4528000 rw-p 00000000 00:00 0 
+b4528000-b452b000 ---p 00000000 00:00 0 
+b452b000-b4579000 rw-p 00000000 00:00 0 
+b4579000-b457c000 ---p 00000000 00:00 0 
+b457c000-b45ca000 rw-p 00000000 00:00 0 
+b45ca000-b45cb000 ---p 00000000 00:00 0 
+b45cb000-b467e000 rw-p 00000000 00:00 0 
+b467e000-b4812000 r--s 0392f000 08:01 1485379    /usr/lib/jvm/java-6-openjdk/jre/lib/rt.jar
+b4812000-b4819000 rwxp 00000000 00:00 0 
+b4819000-b4893000 rwxp 00000000 00:00 0 
+b4893000-b48a6000 rwxp 00000000 00:00 0 
+b48a6000-b4980000 rwxp 00000000 00:00 0 
+b4980000-b4982000 rwxp 00000000 00:00 0 
+b4982000-b4993000 rwxp 00000000 00:00 0 
+b4993000-b49a7000 rwxp 00000000 00:00 0 
+b49a7000-b4a80000 rwxp 00000000 00:00 0 
+b4a80000-b4a86000 rwxp 00000000 00:00 0 
+b4a86000-b4b00000 rwxp 00000000 00:00 0 
+b4b00000-b4b13000 rwxp 00000000 00:00 0 
+b4b13000-b4b8b000 rwxp 00000000 00:00 0 
+b4b8b000-b4d73000 rwxp 00000000 00:00 0 
+b4d73000-b6b8b000 rwxp 00000000 00:00 0 
+b6b8b000-b6b9e000 r-xp 00000000 08:01 1345814    /usr/lib/libz.so.1.2.3.4
+b6b9e000-b6b9f000 rw-p 00013000 08:01 1345814    /usr/lib/libz.so.1.2.3.4
+b6b9f000-b6ba2000 r-xp 00000000 08:01 1350030    /usr/lib/libgmodule-2.0.so.0.2400.2
+b6ba2000-b6ba3000 rw-p 00002000 08:01 1350030    /usr/lib/libgmodule-2.0.so.0.2400.2
+b6ba3000-b6ba6000 r--s 0007d000 08:01 1485272    /usr/lib/jvm/java-6-openjdk/jre/lib/jsse.jar
+b6ba6000-b6ba9000 r--s 0000f000 08:01 1565883    /usr/lib/jvm/java-6-openjdk/jre/lib/ext/pulse-java.jar
+b6ba9000-b6bb0000 rwxp 00000000 00:00 0 
+b6bb0000-b6bba000 r-xp 00000000 08:01 1574489    /lib/i686/cmov/libnss_files-2.11.3.so
+b6bba000-b6bbb000 r--p 00009000 08:01 1574489    /lib/i686/cmov/libnss_files-2.11.3.so
+b6bbb000-b6bbc000 rw-p 0000a000 08:01 1574489    /lib/i686/cmov/libnss_files-2.11.3.so
+b6bbc000-b6bc4000 r-xp 00000000 08:01 1574482    /lib/i686/cmov/libnss_nis-2.11.3.so
+b6bc4000-b6bc5000 r--p 00008000 08:01 1574482    /lib/i686/cmov/libnss_nis-2.11.3.so
+b6bc5000-b6bc6000 rw-p 00009000 08:01 1574482    /lib/i686/cmov/libnss_nis-2.11.3.so
+b6bc6000-b6bc8000 r--s 001d1000 08:01 1663087    /usr/local/Aptana_Studio_3/plugins/com.aptana.rcp_3.2.2.201208201020.jar
+b6bc8000-b6bce000 r-xp 00000000 08:01 1647534    /usr/lib/jvm/java-6-openjdk/jre/lib/i386/libzip.so
+b6bce000-b6bcf000 rw-p 00006000 08:01 1647534    /usr/lib/jvm/java-6-openjdk/jre/lib/i386/libzip.so
+b6bcf000-b6bd7000 rw-s 00000000 08:01 1163385    /tmp/hsperfdata_adrian/3064
+b6bd7000-b6bea000 r-xp 00000000 08:01 1574486    /lib/i686/cmov/libnsl-2.11.3.so
+b6bea000-b6beb000 r--p 00012000 08:01 1574486    /lib/i686/cmov/libnsl-2.11.3.so
+b6beb000-b6bec000 rw-p 00013000 08:01 1574486    /lib/i686/cmov/libnsl-2.11.3.so
+b6bec000-b6bee000 rw-p 00000000 00:00 0 
+b6bee000-b6bef000 r--s 00008000 08:01 1663248    /usr/local/Aptana_Studio_3/plugins/org.eclipse.jsch.core_1.1.300.I20110514-0800.jar
+b6bef000-b6bf5000 r-xp 00000000 08:01 1574504    /lib/i686/cmov/libnss_compat-2.11.3.so
+b6bf5000-b6bf6000 r--p 00006000 08:01 1574504    /lib/i686/cmov/libnss_compat-2.11.3.so
+b6bf6000-b6bf7000 rw-p 00007000 08:01 1574504    /lib/i686/cmov/libnss_compat-2.11.3.so
+b6bf7000-b6bfe000 r-xp 00000000 08:01 1646667    /usr/lib/jvm/java-6-openjdk/jre/lib/i386/native_threads/libhpi.so
+b6bfe000-b6bff000 rw-p 00006000 08:01 1646667    /usr/lib/jvm/java-6-openjdk/jre/lib/i386/native_threads/libhpi.so
+b6bff000-b6c22000 r-xp 00000000 08:01 1647519    /usr/lib/jvm/java-6-openjdk/jre/lib/i386/libjava.so
+b6c22000-b6c24000 rw-p 00023000 08:01 1647519    /usr/lib/jvm/java-6-openjdk/jre/lib/i386/libjava.so
+b6c24000-b6c2b000 r-xp 00000000 08:01 1574501    /lib/i686/cmov/librt-2.11.3.so
+b6c2b000-b6c2c000 r--p 00006000 08:01 1574501    /lib/i686/cmov/librt-2.11.3.so
+b6c2c000-b6c2d000 rw-p 00007000 08:01 1574501    /lib/i686/cmov/librt-2.11.3.so
+b6c2d000-b6c51000 r-xp 00000000 08:01 1574484    /lib/i686/cmov/libm-2.11.3.so
+b6c51000-b6c52000 r--p 00023000 08:01 1574484    /lib/i686/cmov/libm-2.11.3.so
+b6c52000-b6c53000 rw-p 00024000 08:01 1574484    /lib/i686/cmov/libm-2.11.3.so
+b6c53000-b6c58000 rwxp 00000000 00:00 0 
+b6c58000-b6c63000 r-xp 00000000 08:01 1647512    /usr/lib/jvm/java-6-openjdk/jre/lib/i386/libverify.so
+b6c63000-b6c64000 rw-p 0000b000 08:01 1647512    /usr/lib/jvm/java-6-openjdk/jre/lib/i386/libverify.so
+b6c64000-b706a000 r-xp 00000000 08:01 1647529    /usr/lib/jvm/java-6-openjdk/jre/lib/i386/client/libjvm.so
+b706a000-b708c000 rw-p 00405000 08:01 1647529    /usr/lib/jvm/java-6-openjdk/jre/lib/i386/client/libjvm.so
+b708c000-b74ac000 rw-p 00000000 00:00 0 
+b74ac000-b7621000 r--p 00000000 08:01 1362157    /usr/lib/locale/locale-archive
+b7621000-b7622000 rw-p 00000000 00:00 0 
+b7622000-b7762000 r-xp 00000000 08:01 1574502    /lib/i686/cmov/libc-2.11.3.so
+b7762000-b7763000 ---p 00140000 08:01 1574502    /lib/i686/cmov/libc-2.11.3.so
+b7763000-b7765000 r--p 00140000 08:01 1574502    /lib/i686/cmov/libc-2.11.3.so
+b7765000-b7766000 rw-p 00142000 08:01 1574502    /lib/i686/cmov/libc-2.11.3.so
+b7766000-b776a000 rw-p 00000000 00:00 0 
+b776a000-b776c000 r-xp 00000000 08:01 1574483    /lib/i686/cmov/libdl-2.11.3.so
+b776c000-b776d000 r--p 00001000 08:01 1574483    /lib/i686/cmov/libdl-2.11.3.so
+b776d000-b776e000 rw-p 00002000 08:01 1574483    /lib/i686/cmov/libdl-2.11.3.so
+b776e000-b7783000 r-xp 00000000 08:01 1574492    /lib/i686/cmov/libpthread-2.11.3.so
+b7783000-b7784000 r--p 00014000 08:01 1574492    /lib/i686/cmov/libpthread-2.11.3.so
+b7784000-b7785000 rw-p 00015000 08:01 1574492    /lib/i686/cmov/libpthread-2.11.3.so
+b7785000-b7787000 rw-p 00000000 00:00 0 
+b7787000-b7788000 r--s 00005000 08:01 1663101    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.simpleconfigurator.manipulator_2.0.0.v20110815-1438.jar
+b7788000-b7789000 r--s 0000b000 08:01 1663049    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.launcher_1.2.0.v20110502.jar
+b7789000-b778a000 rw-p 00000000 00:00 0 
+b778a000-b778b000 r--p 00000000 00:00 0 
+b778b000-b7797000 r-xp 00000000 08:01 1802262    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.launcher.gtk.linux.x86_1.1.100.v20110505/eclipse_1407.so
+b7797000-b7798000 rw-p 0000c000 08:01 1802262    /usr/local/Aptana_Studio_3/plugins/org.eclipse.equinox.launcher.gtk.linux.x86_1.1.100.v20110505/eclipse_1407.so
+b7798000-b779a000 rw-p 00000000 00:00 0 
+b779a000-b779b000 r-xp 00000000 00:00 0          [vdso]
+b779b000-b77b6000 r-xp 00000000 08:01 1558130    /lib/ld-2.11.3.so
+b77b6000-b77b7000 r--p 0001b000 08:01 1558130    /lib/ld-2.11.3.so
+b77b7000-b77b8000 rw-p 0001c000 08:01 1558130    /lib/ld-2.11.3.so
+bfe3a000-bfe3d000 ---p 00000000 00:00 0 
+bfe3e000-bfe8a000 rw-p 00000000 00:00 0          [stack]
+
+VM Arguments:
+jvm_args: -Xms40m -Xmx512m -Declipse.p2.unsignedPolicy=allow -Declipse.log.size.max=10000 -Declipse.log.backup.max=5 -Djava.awt.headless=true -XX:MaxPermSize=256m 
+java_command: <unknown>
+Launcher Type: generic
+
+Environment Variables:
+PATH=/usr/local/android-sdk-linux//tools:/usr/local/apache-maven/apache-maven-3.0.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+USERNAME=adrian
+LD_LIBRARY_PATH=/usr/lib/jvm/java-6-openjdk/jre/lib/i386/client:/usr/lib/jvm/java-6-openjdk/jre/lib/i386:
+SHELL=/bin/bash
+DISPLAY=:0.0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x39f360], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x39f360], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x2cafb0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: SIG_IGN, sa_mask[0]=0x00001000, sa_flags=0x10000000
+SIGXFSZ: [libjvm.so+0x2cafb0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x2cafb0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x2ca700], sa_mask[0]=0x00000000, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x2ccc60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: [libjvm.so+0x2ccc60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGTERM: [libjvm.so+0x2ccc60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x2ccc60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:6.0.6
+
+uname:Linux 2.6.32-5-686 #1 SMP Sun Sep 23 09:49:36 UTC 2012 i686
+libc:glibc 2.11.3 NPTL 2.11.3 
+rlimit: STACK 8192k, CORE 0k, NPROC infinity, NOFILE 1024, AS infinity
+load average:0.06 0.08 0.07
+
+CPU:total 1 (1 cores per cpu, 1 threads per core) family 6 model 42 stepping 7, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3
+
+Memory: 4k page, physical 2074836k(612984k free), swap 1324024k(1324024k free)
+
+vm_info: OpenJDK Client VM (14.0-b16) for linux-x86 JRE (1.6.0_18-b18), built on Jun 29 2012 08:20:56 by "buildd" with gcc 4.4.5
+
+time: Wed Dec 12 21:51:43 2012
+elapsed time: 5 seconds
+
