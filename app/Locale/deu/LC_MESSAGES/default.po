@@ -137,3 +137,31 @@ msgstr "Geschichte bearbeiten"
 
 msgid "Storytext"
 msgstr "Geschichte"
+
+#Bookings
+msgid "Bookings"
+msgstr "Buchungen"
+
+msgid "New Booking"
+msgstr "Buchung hinzufügen"
+
+msgid "List Bookings"
+msgstr "Bungungsübersicht anzeigen"
+
+msgid "Add Booking"
+msgstr "Bungung hinzufügen"
+
+msgid "Edit Booking"
+msgstr "Buchung bearbeiten"
+
+msgid "Value"
+msgstr "Betrag"
+
+msgid "Transactiondate"
+msgstr "Buchungs Datum"
+
+msgid "Income"
+msgstr "Einnahmen"
+
+msgid "Expenses"
+msgstr "Ausgaben"
