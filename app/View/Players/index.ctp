@@ -1,4 +1,4 @@
-<div class="players index">
+<div class="players">
 	<h1><?php echo __('Participants'); ?></h2>
 		<?php
 	foreach ($player as $play): ?>

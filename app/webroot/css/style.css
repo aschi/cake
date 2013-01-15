@@ -444,6 +444,30 @@ input[type=submit]:active,
 	text-decoration: none;
 }
 
+table.player{
+	border:0;
+	color:#787878;
+	margin:0;
+	width:auto;
+}
+table.player tr th td{
+	border:0;
+	margin:0;
+	width:auto;
+	padding:0;
+}
+
+table.player th{
+	border:0;
+}
+table.player td{
+	border:0;
+}
+
+
+table.player tr:nth-child(even) {
+	background: #fff;
+}
 /** Tables **/
 table {
 	border-right:0;

@@ -1,6 +1,6 @@
-<div class="news index">
+<div class="news">
 	<h2><?php echo __('News'); ?></h2>
-	<?php
+		<?php
 	foreach ($news as $news): ?>
 	<div class="news">
     <h1><?php echo h($news['News']['title']); ?></h1>
