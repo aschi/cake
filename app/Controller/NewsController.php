@@ -6,6 +6,10 @@ App::uses('AppController', 'Controller');
  * @property News $News
  */
 class NewsController extends AppController {
+	public function beforeFilter(){
+		$this->Auth->allow('index', 'view');
+	}
+	
 /**
  * Helpers
  *

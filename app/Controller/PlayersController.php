@@ -6,18 +6,14 @@ App::uses('AppController', 'Controller', 'PlayerClub', 'PlayerPosition');
  * @property Player $Player
  */
 class PlayersController extends AppController {
+	public function beforeFilter(){
+		$this->Auth->allow('index', 'view');
+	}
+	
 
 
 /**
- * Helpers
- *
- * @var array
- */
-//	public $helpers = array('Tinymce');
-
-
-/**
- * index method
+ * admin_index method
  *
  * @return void
  */

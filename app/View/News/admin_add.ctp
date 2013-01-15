@@ -3,9 +3,9 @@
 	<fieldset>
 		<legend><?php echo __('Add News'); ?></legend>
 	<?php
-		echo $this->Form->input('previewtext', array('label'=>'Vorschau Text'));
-		echo $this->Form->input('imagepath', array('label'=>'Vorschau Bild', 'class' => 'imageSelector'));
-		echo $this->Form->input('newstext', array('label'=>'News Text', 'class' => 'mceEditor'));
+		echo $this->Form->input('title');
+		echo $this->Form->input('previewtext');
+		echo $this->Form->input('newstext', array('class' => 'mceEditor'));
     ?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

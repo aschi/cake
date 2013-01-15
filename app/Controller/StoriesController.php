@@ -6,7 +6,9 @@ App::uses('AppController', 'Controller');
  * @property Story $Story
  */
 class StoriesController extends AppController {
-
+	public function beforeFilter(){
+		$this->Auth->allow('index', 'view');
+	}
 
 /**
  * index method

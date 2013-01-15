@@ -119,6 +119,9 @@ msgstr "News erstellen"
 msgid "List News"
 msgstr "Newsübersicht anzeigen"
 
+msgid "more..."
+msgstr "mehr anzeigen"
+
 #Stories
 msgid "Stories"
 msgstr "Geschichten"
@@ -165,3 +168,9 @@ msgstr "Einnahmen"
 
 msgid "Expenses"
 msgstr "Ausgaben"
+
+msgid "Apply"
+msgstr "Bewerben"
+
+msgid "Participants"
+msgstr "Teilnehmer"

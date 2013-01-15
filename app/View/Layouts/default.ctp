@@ -16,7 +16,7 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
+$cakeDescription = __d('101percent', '101% Auf und neben dem Platz');
 $scripts_for_layout 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -27,38 +27,88 @@ $scripts_for_layout
 		<?php echo $cakeDescription ?>:
 		<?php echo $title_for_layout; ?>
 	</title>
+	<link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
 	<?php
-    echo $scripts_for_layout;
+    	echo $scripts_for_layout;
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
-		echo $this->Html->css('main');
+		echo $this->Html->css('style');
+		//echo $this->Html->css('cake.generic');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
 </head>
+
 <body>
-	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
-		</div>
-		<div id="content">
 
-			<?php echo $this->Session->flash(); ?>
+<div id="header-wrapper" class="container">
 
-			<?php echo $this->fetch('content'); ?>
-		</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
-		</div>
+    <div id="header" class="container">
+
+        <div id="headerpics">
+        <img src="images/spieler/philipp-koch.jpg" width="100" height="125" alt="" />
+        <img src="images/spieler/fernando-torres.jpg" width="100" height="125" alt="" />
+        <img src="images/spieler/raphael-koch.jpg" width="100" height="125" alt="" />
+        </div>
+
+		<? echo $this->element('public_nav');?>
+        
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
+    
+</div>	
+<!-- end #header -->
+
+<div id="page">
+    
+  <div id="content">
+    
+    <?php echo $this->Session->flash(); ?>
+	<?php echo $this->fetch('content'); ?>
+  <div class="clear">&nbsp;</div>
+  </div>
+        
+        
+		<!-- end #content -->
+		<div id="sidebar">
+		        
+                <div class="geldpool">
+       <h1>Geldpool</h1>
+       <p>6000 CHF</p>	</div>
+       
+       <div class="geldpool">
+       <h1>Einnahmen Total</h1>
+       <p>16720 CHF</p>	</div>
+       
+       <div class="geldpool">
+       <h1>Ausgaben Total</h1>
+       <p>10720 CHF</p>	</div>
+       
+       <div class="geldpool">
+       <h1>Aktuelle Auktion</h1>
+       <p>FCZ Trikot</p>
+       <img src="images/auktionen/fcz-shirt.jpg" alt="" width="180" height="120" /> 
+       <p><a href="#">Ricardo Link</a></p></div>
+		
+        
+        </div>
+        <!-- end #sidebar -->
+        
+        <div class="clear">&nbsp;</div>
+
+</div>
+
+<div class="container"><img src="img/img03.png" width="1000" height="40" alt="" /></div>
+<!-- end #page -->
+
+
+<div id="footer">
+	<p>Copyright (c) 2013 101-prozent.ch</p>
+</div>
+
+<!-- end #footer -->
+
+
 </body>
 </html>

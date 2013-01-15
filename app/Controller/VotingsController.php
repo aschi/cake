@@ -12,7 +12,7 @@ class VotingsController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function intern_index() {
 		$this->Voting->recursive = 0;
 		$this->set('votings', $this->paginate());
 	}

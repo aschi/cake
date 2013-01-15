@@ -9,7 +9,7 @@ ImageSelector.init = function(config) {
 		buttonnode.type = 'button';
 		buttonnode.name = 'selectImage';
 		buttonnode.value = config.buttonLabel;
-		buttonnode.width = 150;	
+		buttonnode.className = 'imageSelectorButton';
 		buttonnode.onclick = function(){config.callback(fieldId)};
 		el[i].width = 600;
 		el[i].parentNode.appendChild(buttonnode);

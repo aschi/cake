@@ -4,9 +4,8 @@
 		<legend><?php echo __('Edit News'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		
+		echo $this->Form->input('title');
 		echo $this->Form->input('previewtext');
-		echo $this->Form->input('image_id', array('class' => 'imageSelector'));
 		echo $this->Form->input('newstext', array('class' => 'mceEditor'));
 	?>
 	</fieldset>

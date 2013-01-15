@@ -16,7 +16,7 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
+$cakeDescription = __d('101percent', '101% Auf und neben dem Platz');
 $scripts_for_layout 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -27,61 +27,62 @@ $scripts_for_layout
 		<?php echo $cakeDescription ?>:
 		<?php echo $title_for_layout; ?>
 	</title>
+	<link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
 	<?php
-    echo $scripts_for_layout;
+    	echo $scripts_for_layout;
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
-		echo $this->Html->css('navigation');
+		echo $this->Html->css('style');
+		//echo $this->Html->css('cake.generic');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
 </head>
+
 <body>
-	<div id="container">
-		<div id="header">
-			<h1>101% Administration</h1>
-		</div>
-		<div id="navigation">
-			<div class="navEntry">
-				 <?=$this->Html->link(__('News'), array('controller' => 'news', 'action' => 'admin_index'));?>
-			</div>
-			<div class="navEntry">
-				<?=$this->Html->link(__('Users'), array('controller' => 'users', 'action' => 'admin_index'));?>
-			</div>
-			<div class="navEntry">
-				<?=$this->Html->link(__('Stories'), array('controller' => 'stories', 'action' => 'admin_index'));?>
-			</div>
-			<div class="navEntry">
-				<?=$this->Html->link(__('Über uns'), array('controller' => 'stories', 'action' => 'admin_index'));?>
-			</div>
-			<div class="navEntry">
-				<?=$this->Html->link(__('Kandidaten'), array('controller' => 'issues', 'action' => 'admin_index'));?>
-			</div>
-			<div class="navEntry">
-				<?=$this->Html->link(__('Budget'), array('controller' => 'accountings', 'action' => 'admin_index'));?>
-			</div>
-			<div class="navEntry">
-				<?=$this->Html->link(__('Abstimmungen'), array('controller' => 'votings', 'action' => 'admin_index'));?>
-			</div>
-		</div>
-		<div id="content">
 
-			<?php echo $this->Session->flash(); ?>
+<div id="header-wrapper" class="container">
 
-			<?php echo $this->fetch('content'); ?>
-		</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
-		</div>
+    <div id="header" class="container">
+
+        <div id="headerpics">
+	        <h1 class="pagetitle">Administration</h1>
+        </div>
+
+		<? echo $this->element('admin_nav');?>
+        
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
+    
+</div>	
+<!-- end #header -->
+
+<div id="page">
+    
+  <div id="content_admin">
+    
+    <?php echo $this->Session->flash(); ?>
+	<?php echo $this->fetch('content'); ?>
+  <div class="clear">&nbsp;</div>
+  </div>
+        
+        
+		<!-- end #content -->
+		<div class="clear">&nbsp;</div>
+
+</div>
+
+<div class="container"><?=$this->Html->image('../../img03.png')?></div>
+<!-- end #page -->
+
+
+<div id="footer">
+	<p>Copyright (c) 2013 101-prozent.ch</p>
+</div>
+
+<!-- end #footer -->
+
+
 </body>
 </html>

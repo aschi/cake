@@ -108,11 +108,25 @@ class UsersController extends AppController {
 	public function login() {
 		if ($this -> Session -> read('Auth.User')) {
 			$this -> Session -> setFlash('You are logged in!');
-			$this -> redirect('news/index', null, false);
+			switch($user['group_id']){
+				case '1':
+					$this->redirect(array('admin' => true, 'controller' => 'news', 'action' => 'index'));
+					break;
+				default:
+					$this->redirect(array('intern' => true, 'controller' => 'votings', 'action' => 'index'));
+			}	
 		} else {
 			if ($this -> request -> is('post')) {
 				if ($this -> Auth -> login()) {
-					$this -> redirect($this -> Auth -> redirect());
+					$user = $this -> Session -> read('Auth.User');
+					
+					switch($user['group_id']){
+						case '1':
+						 	$this->redirect(array('admin' => true, 'controller' => 'news', 'action' => 'index'));
+							break;
+						default:
+							$this->redirect(array('intern' => true, 'controller' => 'votings', 'action' => 'index'));
+					}					
 				} else {
 					$this -> Session -> setFlash('Your username or password was incorrect.');
 				}
@@ -122,9 +136,18 @@ class UsersController extends AppController {
 	
 
 
+
 	public function logout() {
 		$this -> Session -> setFlash('Bis bald');
 		$this -> redirect($this -> Auth -> logout());
+	}
+	
+	public function admin_login() {
+		$this->redirect(array('action'=>'login', array('admin'=>false)));	
+	}
+	
+	public function intern_login(){
+		$this->redirect(array('action'=>'login', array('intern'=>false)));	
 	}
 	
 	public function admin_logout() {
@@ -138,8 +161,12 @@ class UsersController extends AppController {
 		$group -> id = 1;
 		$this -> Acl -> allow($group, 'controllers');
 
+		$this -> Acl -> allow('*', 'news/index');
+		$this -> Acl -> allow('*', 'news/view');
 		echo "all done";
 		exit ;
+		
+		
 	}
 
 }
