@@ -31,7 +31,13 @@ class PlayersController extends AppController {
  */
 	public function index() {
 		$this->Player->recursive = 0;
-		$this->set('player', $this->paginate());
+		$player = $this->paginate();
+				
+		if ($this->request->is('requested')) {
+            return $player;
+        } else {
+           	$this->set('player', $player);
+        }
 	}
 	
 /**

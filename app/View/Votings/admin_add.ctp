@@ -5,7 +5,7 @@
 	<?php
 		echo $this->Form->input('voting_start', array('dateFormat'=>'DMY'));
 		echo $this->Form->input('voting_end', array('dateFormat'=>'DMY'));
-		echo $this->Form->input('Issue', array('multiple' => 'checkbox'));
+		echo $this->Form->input('Issue');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

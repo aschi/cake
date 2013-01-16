@@ -1,4 +1,4 @@
-<div class="votings index">
+<div class="votings">
 	<h2><?php echo __('Votings'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>

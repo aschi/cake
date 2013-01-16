@@ -1,7 +1,7 @@
 <div class="issues form">
 <?php echo $this->Form->create('Issue'); ?>
 	<fieldset>
-		<legend><?php echo __('Fall bearbeiten'); ?></legend>
+		<legend><?php echo __('Edit Issue'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('title', array('label'=>'Titel'));
@@ -16,9 +16,9 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Form->postLink(__('Löschen'), array('action' => 'delete', $this->Form->value('Issue.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Issue.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('Fälle auflisten'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('Abstimmung erstellen'), array('controller' => 'votings', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Issue.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Issue.id'))); ?></li>
+		<li><?php echo $this->Html->link(__('List Issues'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('New Voting'), array('controller' => 'votings', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 

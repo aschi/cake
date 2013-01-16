@@ -47,11 +47,7 @@ $scripts_for_layout
 
     <div id="header" class="container">
 
-        <div id="headerpics">
-        <img src="images/spieler/philipp-koch.jpg" width="100" height="125" alt="" />
-        <img src="images/spieler/fernando-torres.jpg" width="100" height="125" alt="" />
-        <img src="images/spieler/raphael-koch.jpg" width="100" height="125" alt="" />
-        </div>
+		<? echo $this->element('picture_header');?>
 
 		<? echo $this->element('public_nav');?>
         
@@ -73,17 +69,20 @@ $scripts_for_layout
 		<!-- end #content -->
 		<div id="sidebar">
 		        
-                <div class="geldpool">
+       <div class="geldpool">
        <h1>Geldpool</h1>
-       <p>6000 CHF</p>	</div>
+       <p><?=$this->element('total_display', array('mode'=>'total'));?></p>
+       </div>
        
        <div class="geldpool">
        <h1>Einnahmen Total</h1>
-       <p>16720 CHF</p>	</div>
+       <p><?=$this->element('total_display', array('mode'=>'income'));?></p>
+       </div>
        
        <div class="geldpool">
        <h1>Ausgaben Total</h1>
-       <p>10720 CHF</p>	</div>
+       <p><?=$this->element('total_display', array('mode'=>'expenses'));?></p>
+	   </div>
        
        <div class="geldpool">
        <h1>Aktuelle Auktion</h1>

@@ -16,7 +16,7 @@ class VotingsController extends AppController {
 		$this->layout = 'intern'; 
 		
 		$votings = $this->Voting->find('all', array(
-		    'conditions' => array('DATE(Voting.voting_start) <=' => date('Y-m-d'), 'DATE(Voting.voting_end) >=' => date('Y-m-d')), //array of conditions
+			'conditions' => array('DATE(Voting.voting_start) <=' => date('Y-m-d'), 'DATE(Voting.voting_end) >=' => date('Y-m-d')), //array of conditions
 		));
 		
 		if(count($votings) == 1){
@@ -24,9 +24,13 @@ class VotingsController extends AppController {
 		}
 		
 		$this->Voting->recursive = 0;
-		$this->set('votings', $this->paginate(array(
+		
+		$this->paginate = array(
 		    'conditions' => array('DATE(Voting.voting_start) <=' => date('Y-m-d'), 'DATE(Voting.voting_end) >=' => date('Y-m-d')), //array of conditions
-		)));
+		);	
+		
+		
+		$this->set('votings', $this->paginate());
 	}
 
 /**

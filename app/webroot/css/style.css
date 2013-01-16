@@ -40,6 +40,10 @@ a {
 	color: #5E5E5E;
 }
 
+.bold{
+	font-weight:bold;
+}
+
 a:hover {
 }
 
@@ -48,6 +52,10 @@ a:hover {
 	margin: 0px auto;
 }
 
+.newsDate{
+	text-align:right;
+	float:right;
+}
 
 /* Header */
 

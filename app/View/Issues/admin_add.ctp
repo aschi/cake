@@ -1,7 +1,7 @@
 <div class="issues form">
 <?php echo $this->Form->create('Issue'); ?>
 	<fieldset>
-		<legend><?php echo __('Fall erfassen'); ?></legend>
+		<legend><?php echo __('Add Issue'); ?></legend>
 	<?php
 		echo $this->Form->input('title', array('label'=>'Titel'));
 		echo $this->Form->input('casedescription', array('label'=>'Beschreibung'));
@@ -15,7 +15,7 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Html->link(__('Fälle auflisten'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('List Issues'), array('action' => 'index')); ?></li>
 	</ul>
 </div>
 

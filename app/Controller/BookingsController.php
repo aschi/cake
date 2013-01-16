@@ -6,7 +6,9 @@ App::uses('AppController', 'Controller');
  * @property Booking $Booking
  */
 class BookingsController extends AppController {
-
+	public function beforeFilter(){
+		$this->Auth->allow('total');
+	}
 /**
  * admin_index method
  *
@@ -34,8 +36,26 @@ class BookingsController extends AppController {
  * @return void
  */
 	public function total(){
-		$total = $this->Booking->find('all', array('fields' => array('sum(Booking.value) AS total')));
-		$this->set('total', $total);
+		$tot = $this->Booking->find('all', array('fields' => array('sum(Booking.value) AS total')));
+		$total['total'] = abs($tot[0][0]['total']);
+		
+		$tot = $this->Booking->find('all', array(
+			'fields' => array('sum(Booking.value) AS total'),
+			'conditions' => array('Booking.value >' => 0), //array of conditions
+		));
+		$total['income'] = abs($tot[0][0]['total']);
+		
+		$tot = $this->Booking->find('all', array(
+			'fields' => array('sum(Booking.value) AS total'),
+			'conditions' => array('Booking.value <' => 0), //array of conditions
+		));
+		$total['expenses'] = abs($tot[0][0]['total']);
+		
+		if ($this->request->is('requested')) {
+            return $total;
+        } else {
+           	$this->set('total', $total);
+        }
 	}
 
 /**

@@ -151,29 +151,25 @@ class UsersController extends AppController {
 	public function login() {
 		if ($this -> Session -> read('Auth.User')) {
 			$this -> Session -> setFlash('You are logged in!');
+			$this->redirect($this->Auth->redirect());
+			/*
 			switch($user['group_id']){
 				case '1':
 					$this->redirect(array('admin' => true, 'controller' => 'news', 'action' => 'index'));
 					break;
 				default:
 					$this->redirect(array('intern' => true, 'controller' => 'votings', 'action' => 'index'));
-			}	
-		} else {
-			if ($this -> request -> is('post')) {
-				if ($this -> Auth -> login()) {
-					$user = $this -> Session -> read('Auth.User');
-					
-					switch($user['group_id']){
-						case '1':
-						 	$this->redirect(array('admin' => true, 'controller' => 'news', 'action' => 'index'));
-							break;
-						default:
-							$this->redirect(array('intern' => true, 'controller' => 'votings', 'action' => 'index'));
-					}					
-				} else {
-					$this -> Session -> setFlash('Your username or password was incorrect.');
-				}
 			}
+			 
+			 */	
+		} else {
+		    if ($this->request->is('post')) {
+		        if ($this->Auth->login()) {
+		            $this->redirect($this->Auth->redirect());
+		        } else {
+		            $this->Session->setFlash(__('Invalid username or password, try again'));
+		        }
+		    }
 		}
 	}
 	
@@ -185,13 +181,15 @@ class UsersController extends AppController {
 		$this -> redirect($this -> Auth -> logout());
 	}
 	
+	
 	public function admin_login() {
-		$this->redirect(array('action'=>'login', array('admin'=>false)));	
+		$this->redirect(array('admin'=>false, 'action'=>'login'));	
 	}
 	
 	public function intern_login(){
-		$this->redirect(array('action'=>'login', array('intern'=>false)));	
+		$this->redirect(array('intern'=>false, 'action'=>'login'));	
 	}
+	
 	
 	public function admin_logout() {
 		$this -> Session -> setFlash('Bis bald');

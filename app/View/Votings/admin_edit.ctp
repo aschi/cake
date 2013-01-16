@@ -4,7 +4,6 @@
 		<legend><?php echo __('Admin Edit Voting'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('user_id');
 		echo $this->Form->input('voting_start');
 		echo $this->Form->input('voting_end');
 		echo $this->Form->input('Issue');

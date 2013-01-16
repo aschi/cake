@@ -1,25 +1,14 @@
 <div class="voting">
 <h2><?php  echo __('Voting'); ?></h2>
-	<dl>
-		<dt><?php echo __('Author'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($voting['User']['username'], array('controller' => 'users', 'action' => 'view', $voting['User']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Voting Start'); ?></dt>
-		<dd>
-			<?php echo h($voting['Voting']['voting_start']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Voting End'); ?></dt>
-		<dd>
-			<?php echo h($voting['Voting']['voting_end']); ?>
-			&nbsp;
-		</dd>
-	</dl>
+	<p>
+		<span class="bold"><?php echo __('Voting Start'); ?>:</span>&nbsp;
+		<?php echo date('d.m.Y', strtotime($voting['Voting']['voting_start'])); ?>&nbsp;
+		<span class="bold"><?php echo __('Voting End'); ?>:</span>&nbsp;
+		<?php echo date('d.m.Y', strtotime($voting['Voting']['voting_end'])); ?>
+	</p>
 </div>
 <div class="related">
-	<h3><?php echo __('Related Issues'); ?></h3>
+	<h3><?php echo __('Issues'); ?></h3>
 	<?php if (!empty($voting['Issue'])): ?>
 		<table>
 			<tr>
@@ -65,7 +54,7 @@
 						<td><?php echo $thisCount.'/'.$totalCount.' ('.round((100/$totalCount*$thisCount), 2).'%)';?></td>
 					</tr>
 					<?php endif; ?>
-					<?php if ($votesavailable): ?>
+					<?php if (isset($votesavailable) && $votesavailable): ?>
 					<tr>
 						<td class="actions">
 							<?php echo $this->Html->link(__('Vote'), array('controller' => 'votings', 'action' => 'vote', $voting['Voting']['id'], $issue['id'])); ?>

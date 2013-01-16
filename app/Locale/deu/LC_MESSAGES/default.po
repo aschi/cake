@@ -35,6 +35,9 @@ msgstr "Author"
 msgid "Image"
 msgstr "Bildpfad"
 
+msgid "Imagepath"
+msgstr "Bildpfad"
+
 msgid "Title"
 msgstr "Titel"
 
@@ -48,7 +51,16 @@ msgstr "Benötigte Mittel"
 msgid "Description"
 msgstr "Beschreibung"
 
+msgid "Add Issue"
+msgstr "Neuer Kandidat"
+
+msgid "Edit Issue"
+msgstr "Kandidat bearbeiten"
+
 #Voting
+msgid "Voting"
+msgstr "Abstimmung"
+
 msgid "Vote"
 msgstr "Abstimmen"
 
@@ -70,10 +82,16 @@ msgstr "Abstimmungen"
 msgid "New Voting"
 msgstr "Neue Abstimmung"
 
+msgid "Admin Add Voting"
+msgstr "Neue Abstimmung"
+
+msgid "Admin Edit Voting"
+msgstr "Abstimmung bearbeiten"
+
 
 #User
 msgid "List Users"
-msgstr "Benutzerübersicht anzeigen"
+msgstr "Benutzer anzeigen"
 
 msgid "New User"
 msgstr "Benutzer anlegen"
@@ -108,6 +126,12 @@ msgstr "Gruppe anlegen"
 
 msgid "List Groups"
 msgstr "Gruppen anzeigen"
+
+msgid "Groups"
+msgstr "Gruppen"
+
+msgid "Add Group"
+msgstr "Gruppe anlegen"
 
 #Player Profile
 msgid "Add Profile"
@@ -149,10 +173,10 @@ msgid "List Stories"
 msgstr "Geschichten"
 
 msgid "New Story"
-msgstr "Geschichte hinzufügen"
+msgstr "Neue Geschichte"
 
 msgid "Add Story"
-msgstr "Geschichte hinzufügen"
+msgstr "Neue Geschichte"
 
 msgid "Edit Story"
 msgstr "Geschichte bearbeiten"
@@ -200,3 +224,16 @@ msgstr "Kandidaten"
 
 msgid "New Issue"
 msgstr "Neuer Kandidat"
+
+msgid "Casedescription"
+msgstr "Fallbeschreibung"
+
+msgid "Claim"
+msgstr "Benötigte Mittel"
+
+msgid "Issues"
+msgstr "Kandidaten"
+
+msgid "Issue"
+msgstr "Kandidaten"
+

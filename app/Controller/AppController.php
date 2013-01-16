@@ -49,7 +49,7 @@ class AppController extends Controller {
 		
         //Configure AuthComponent
         $this->Auth->loginAction = array('admin' => false, 'controller' => 'users', 'action' => 'login');
-        $this->Auth->logoutRedirect = array('admin' => false, 'controller' => 'users', 'action' => 'login');
+        $this->Auth->logoutRedirect = array('admin' => false,  'controller' => 'news', 'action' => 'index');
 		if($this -> Session -> read('Auth.User')){
 			
 			$user = $this -> Session -> read('Auth.User');
