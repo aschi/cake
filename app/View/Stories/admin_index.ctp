@@ -3,22 +3,18 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('title'); ?></th>
-			<th><?php echo $this->Paginator->sort('storytext'); ?></th>
 			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php
 	foreach ($stories as $story): ?>
 	<tr>
 		<td><?php echo h($story['Story']['title']); ?>&nbsp;</td>
-		<td><?php echo $story['Story']['storytext'] ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($story['User']['username'], array('controller' => 'users', 'action' => 'view', $story['User']['id'])); ?>
 		</td>
 		<td><?php echo h($story['Story']['modified']); ?>&nbsp;</td>
-		<td><?php echo h($story['Story']['created']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $story['Story']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $story['Story']['id'])); ?>

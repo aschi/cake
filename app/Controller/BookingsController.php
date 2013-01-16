@@ -13,6 +13,7 @@ class BookingsController extends AppController {
  * @return void
  */
 	public function admin_index() {
+		$this->layout = 'administration'; 
 		$this->Booking->recursive = 0;
 		$this->set('bookings', $this->paginate());
 	}
@@ -36,22 +37,6 @@ class BookingsController extends AppController {
 		$total = $this->Booking->find('all', array('fields' => array('sum(Booking.value) AS total')));
 		$this->set('total', $total);
 	}
- 
- 
-/**
- * admin_view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function admin_view($id = null) {
-		$this->Booking->id = $id;
-		if (!$this->Booking->exists()) {
-			throw new NotFoundException(__('Invalid Booking'));
-		}
-		$this->set('booking', $this->Booking->read(null, $id));
-	}
 
 /**
  * admin_add method
@@ -59,6 +44,7 @@ class BookingsController extends AppController {
  * @return void
  */
 	public function admin_add() {
+		$this->layout = 'administration'; 
 		if ($this->request->is('post')) {
 
 			$this->Booking->create();
@@ -84,6 +70,7 @@ class BookingsController extends AppController {
  * @return void
  */
 	public function admin_edit($id = null) {
+		$this->layout = 'administration'; 
 		$this->Booking->id = $id;
 		if (!$this->Booking->exists()) {
 			throw new NotFoundException(__('Invalid Booking'));
@@ -115,6 +102,7 @@ class BookingsController extends AppController {
  * @return void
  */
 	public function admin_delete($id = null) {
+		$this->layout = 'administration'; 
 		if (!$this->request->is('post')) {
 			throw new MethodNotAllowedException();
 		}

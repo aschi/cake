@@ -1,7 +1,7 @@
 <div class="Bookings form">
 <?php echo $this->Form->create('Booking'); ?>
 	<fieldset>
-		<legend><?php echo __('Admin Edit Booking'); ?></legend>
+		<legend><?php echo __('Edit Booking'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('value');

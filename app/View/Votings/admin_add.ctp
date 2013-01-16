@@ -15,13 +15,5 @@
 	<ul>
 
 		<li><?php echo $this->Html->link(__('List Votings'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Votes'), array('controller' => 'votes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Vote'), array('controller' => 'votes', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Votes Availables'), array('controller' => 'votes_availables', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Votes Available'), array('controller' => 'votes_availables', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Issues'), array('controller' => 'issues', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Issue'), array('controller' => 'issues', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

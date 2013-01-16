@@ -48,10 +48,10 @@ $scripts_for_layout
     <div id="header" class="container">
 
         <div id="headerpics">
-	        <h1 class="pagetitle">Administration</h1>
+	        <h1 class="pagetitle">Intern</h1>
         </div>
 
-		<? echo $this->element('admin_nav');?>
+		<? echo $this->element('intern_nav');?>
         
 	</div>
     

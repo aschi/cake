@@ -6,6 +6,10 @@ App::uses('AppController', 'Controller');
  * @property User $User
  */
 class UsersController extends AppController {
+	function beforeFilter() {        
+    	$this->Auth->allow('login','logout');
+	}
+	
 	/**
 	 * index method
 	 *
@@ -67,6 +71,11 @@ class UsersController extends AppController {
 			throw new NotFoundException(__('Invalid user'));
 		}
 		if ($this -> request -> is('post') || $this -> request -> is('put')) {
+			//save password if new password is set
+			if($this->request->data['User']['new_password'] != ""){
+				$this->User->set('password', $this->request->data['User']['new_password']);
+			}
+				
 			if ($this -> User -> save($this -> request -> data)) {
 				$this -> Session -> setFlash(__('The user has been saved'));
 				$this -> redirect(array('action' => 'index'));
@@ -78,6 +87,40 @@ class UsersController extends AppController {
 		}
 		$groups = $this -> User -> Group -> find('list');
 		$this -> set(compact('groups'));
+	}
+
+	/**
+	 * edit method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function intern_edit() {
+		$this->layout = 'intern'; 
+		
+		$user = $this -> Session -> read('Auth.User');
+		$id = $user['id'];
+		
+		$this -> User -> id = $id;
+		if (!$this -> User -> exists()) {
+			throw new NotFoundException(__('Invalid user'));
+		}
+		if ($this -> request -> is('post') || $this -> request -> is('put')) {
+			//save password if new password is set
+			if($this->request->data['User']['new_password'] != ""){
+				$this->User->set('password', $this->request->data['User']['new_password']);
+			}
+				
+			if ($this -> User -> save($this -> request -> data)) {
+				$this -> Session -> setFlash(__('The user has been saved'));
+				$this -> redirect(array('action' => 'index'));
+			} else {
+				$this -> Session -> setFlash(__('The user could not be saved. Please, try again.'));
+			}
+		} else {
+			$this -> request -> data = $this -> User -> read(null, $id);
+		}
 	}
 
 	/**
@@ -161,8 +204,13 @@ class UsersController extends AppController {
 		$group -> id = 1;
 		$this -> Acl -> allow($group, 'controllers');
 
-		$this -> Acl -> allow('*', 'news/index');
-		$this -> Acl -> allow('*', 'news/view');
+		$group -> id = 2;
+    	$this->Acl->deny($group, 'controllers');
+    	$this->Acl->allow($group, 'controllers/Players/intern_add');
+    	$this->Acl->allow($group, 'controllers/Players/intern_edit');
+    	$this->Acl->allow($group, 'controllers/Votings/intern_index');
+
+
 		echo "all done";
 		exit ;
 		

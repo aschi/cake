@@ -8,6 +8,20 @@ App::uses('AppModel', 'Model');
  */
 class PlayerPosition extends AppModel {
 
+	 public function savePosition($position, $userid){
+	 	$this->create();
+			
+		$playerPositionData = array(
+					    'PlayerPosition' => array(
+					        'user_id' => $userid,
+					        'position' => $position
+		    			)
+		);
+				
+		$this->save($playerPositionData);
+		return $this->id;
+	 }
+
 /**
  * Display field
  *

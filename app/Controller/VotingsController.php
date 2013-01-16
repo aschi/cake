@@ -13,100 +13,56 @@ class VotingsController extends AppController {
  * @return void
  */
 	public function intern_index() {
-		$this->Voting->recursive = 0;
-		$this->set('votings', $this->paginate());
-	}
-
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function view($id = null) {
-		$this->loadModel('VotesAvailable');
-				
-		$this->Voting->id = $id;
-		if (!$this->Voting->exists()) {
-			throw new NotFoundException(__('Invalid voting'));
+		$this->layout = 'intern'; 
+		
+		$votings = $this->Voting->find('all', array(
+		    'conditions' => array('DATE(Voting.voting_start) <=' => date('Y-m-d'), 'DATE(Voting.voting_end) >=' => date('Y-m-d')), //array of conditions
+		));
+		
+		if(count($votings) == 1){
+			$this->redirect(array('intern'=>true,'action'=>'view', $votings['0']['Voting']['id']));
 		}
 		
-		$user = $this -> Session -> read('Auth.User');
+		$this->Voting->recursive = 0;
+		$this->set('votings', $this->paginate(array(
+		    'conditions' => array('DATE(Voting.voting_start) <=' => date('Y-m-d'), 'DATE(Voting.voting_end) >=' => date('Y-m-d')), //array of conditions
+		)));
+	}
+
+/**
+ * admin_view method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function intern_view($id = null) {
+		$this->layout = 'intern'; 
+		
+		$this->Voting->id = $id;
+		if (!$this->Voting->exists()) {
+			throw new NotFoundException(__('Invalid voting'));
+		}
 		$this->set('voting', $this->Voting->read(null, $id));
-		$this->set('votesavailable', $this->VotesAvailable->areVotesAvailable($user['id'], $id));
 	}
 
-/**
- * add method
- *
- * @return void
- */
-	public function add() {
-		if ($this->request->is('post')) {
-			$this->Voting->create();
-			if ($this->Voting->save($this->request->data)) {
-				$this->Session->setFlash(__('The voting has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The voting could not be saved. Please, try again.'));
-			}
-		}
-		$users = $this->Voting->User->find('list');
-		$issues = $this->Voting->Issue->find('list');
-		$this->set(compact('users', 'issues'));
-	}
 
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function edit($id = null) {
-		$this->Voting->id = $id;
-		if (!$this->Voting->exists()) {
-			throw new NotFoundException(__('Invalid voting'));
+	public function intern_vote($id, $issueid){
+		$this->layout = 'intern'; 
+		
+		$user = $this -> Session -> read('Auth.User');
+		//$user['id']
+		
+		if($this->Voting->vote($user['id'], $id, $issueid)){
+			$this->Session->setFlash(__('Stimme erfolgreich erfasst.'));
+		}else{
+			$this->Session->setFlash(__('Stimme konnte nicht erfasst werden.'));
 		}
-		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Voting->save($this->request->data)) {
-				$this->Session->setFlash(__('The voting has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The voting could not be saved. Please, try again.'));
-			}
-		} else {
-			$this->request->data = $this->Voting->read(null, $id);
-		}
-		$users = $this->Voting->User->find('list');
-		$issues = $this->Voting->Issue->find('list');
-		$this->set(compact('users', 'issues'));
-	}
-
-/**
- * delete method
- *
- * @throws MethodNotAllowedException
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function delete($id = null) {
-		if (!$this->request->is('post')) {
-			throw new MethodNotAllowedException();
-		}
-		$this->Voting->id = $id;
-		if (!$this->Voting->exists()) {
-			throw new NotFoundException(__('Invalid voting'));
-		}
-		if ($this->Voting->delete()) {
-			$this->Session->setFlash(__('Voting deleted'));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->Session->setFlash(__('Voting was not deleted'));
+		
+		$this->autoRender = false;
 		$this->redirect(array('action' => 'index'));
 	}
+
 
 /**
  * admin_index method
@@ -114,6 +70,8 @@ class VotingsController extends AppController {
  * @return void
  */
 	public function admin_index() {
+		$this->layout = 'administration'; 
+		
 		$this->Voting->recursive = 0;
 		$this->set('votings', $this->paginate());
 		
@@ -128,6 +86,8 @@ class VotingsController extends AppController {
  * @return void
  */
 	public function admin_view($id = null) {
+		$this->layout = 'administration'; 
+		
 		$this->Voting->id = $id;
 		if (!$this->Voting->exists()) {
 			throw new NotFoundException(__('Invalid voting'));
@@ -141,6 +101,8 @@ class VotingsController extends AppController {
  * @return void
  */
 	public function admin_add() {
+		$this->layout = 'administration'; 
+		
 		if ($this->request->is('post')) {
 			$this->Voting->create();
 			
@@ -169,6 +131,8 @@ class VotingsController extends AppController {
  * @return void
  */
 	public function admin_edit($id = null) {
+		$this->layout = 'administration'; 
+		
 		$this->Voting->id = $id;
 		if (!$this->Voting->exists()) {
 			throw new NotFoundException(__('Invalid voting'));
@@ -197,6 +161,8 @@ class VotingsController extends AppController {
  * @return void
  */
 	public function admin_delete($id = null) {
+		$this->layout = 'administration'; 
+		
 		if (!$this->request->is('post')) {
 			throw new MethodNotAllowedException();
 		}
@@ -209,24 +175,6 @@ class VotingsController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->Session->setFlash(__('Voting was not deleted'));
-		$this->redirect(array('action' => 'index'));
-	}
-
-
-	public function vote($id, $issueid){
-		debug($id);
-		debug($issueid);
-		
-		$user = $this -> Session -> read('Auth.User');
-		//$user['id']
-		
-		if($this->Voting->vote($user['id'], $id, $issueid)){
-			$this->Session->setFlash(__('Stimme erfolgreich erfasst.'));
-		}else{
-			$this->Session->setFlash(__('Stimme konnte nicht erfasst werden.'));
-		}
-		
-		$this->autoRender = false;
 		$this->redirect(array('action' => 'index'));
 	}
 }

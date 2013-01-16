@@ -8,6 +8,22 @@ App::uses('AppModel', 'Model');
  */
 class PlayerClub extends AppModel {
 
+	 public function saveClub($club, $userid){
+		$this->create();
+					
+		$playerClubData = array(
+			    'PlayerClub' => array(
+		        'user_id' => $userid,
+		        'clubname' => $club
+		  )
+		);
+					
+		$this->save($playerClubData);
+		
+		return $this->id;
+	 }
+
+
 /**
  * Display field
  *

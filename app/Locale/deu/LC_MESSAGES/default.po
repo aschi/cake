@@ -61,6 +61,16 @@ msgstr "Beginn der Abstimmung"
 msgid "Voting End"
 msgstr "Ende der Abstimmung"
 
+msgid "Votings"
+msgstr "Abstimmungen"
+
+msgid "List Votings"
+msgstr "Abstimmungen"
+
+msgid "New Voting"
+msgstr "Neue Abstimmung"
+
+
 #User
 msgid "List Users"
 msgstr "Benutzerübersicht anzeigen"
@@ -77,18 +87,27 @@ msgstr "Benutzer bearbeiten"
 msgid "Password"
 msgstr "Passwort"
 
+msgid "New Password"
+msgstr "Neues Passwort"
+
 msgid "Users"
 msgstr "Benutzerverwaltung"
+
+msgid "Edit Account"
+msgstr "Accountverwaltung"
+
+msgid "Username"
+msgstr "Benutzername"
 
 #Group
 msgid "Group"
 msgstr "Gruppe"
 
 msgid "New Group"
-msgstr "Benutzergruppe anlegen"
+msgstr "Gruppe anlegen"
 
 msgid "List Groups"
-msgstr "Benutzergruppen anzeigen"
+msgstr "Gruppen anzeigen"
 
 #Player Profile
 msgid "Add Profile"
@@ -127,7 +146,7 @@ msgid "Stories"
 msgstr "Geschichten"
 
 msgid "List Stories"
-msgstr "Geschichten-Übersicht anzeigen"
+msgstr "Geschichten"
 
 msgid "New Story"
 msgstr "Geschichte hinzufügen"
@@ -149,7 +168,7 @@ msgid "New Booking"
 msgstr "Buchung hinzufügen"
 
 msgid "List Bookings"
-msgstr "Bungungsübersicht anzeigen"
+msgstr "Buchungen"
 
 msgid "Add Booking"
 msgstr "Bungung hinzufügen"
@@ -174,3 +193,10 @@ msgstr "Bewerben"
 
 msgid "Participants"
 msgstr "Teilnehmer"
+
+#Issues
+msgid "List Issues"
+msgstr "Kandidaten"
+
+msgid "New Issue"
+msgstr "Neuer Kandidat"
