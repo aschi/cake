@@ -29,6 +29,9 @@ msgstr "vorwärts"
 msgid "previous"
 msgstr "zurück"
 
+msgid "back"
+msgstr "zurück"
+
 msgid "User"
 msgstr "Author"
 
@@ -116,6 +119,12 @@ msgstr "Accountverwaltung"
 
 msgid "Username"
 msgstr "Benutzername"
+
+msgid "Player Club"
+msgstr "Club"
+
+msgid "Player Position"
+msgstr "Position"
 
 #Group
 msgid "Group"
