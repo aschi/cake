@@ -1,5 +1,5 @@
 <div class="players">
-	<h1><?php echo __('Participants'); ?></h2>
+	<h2><?php echo __('Participants'); ?></h2>
 		<?php
 	foreach ($player as $play): ?>
 	<table class="player">

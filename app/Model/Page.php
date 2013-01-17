@@ -1,19 +1,18 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * News Model
+ * Page Model
  *
  * @property User $User
- * @property Image $Image
  */
-class News extends AppModel {
+class Page extends AppModel {
 
 /**
  * Display field
  *
  * @var string
  */
-	public $displayField = 'previewtext';
+	public $displayField = 'title';
 
 /**
  * Validation rules
@@ -31,17 +30,7 @@ class News extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'previewtext' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'newstext' => array(
+		'content' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -52,11 +41,7 @@ class News extends AppModel {
 			),
 		),
 	);
-/*
-	public function beforeSave($options = array()) {
-		$this -> User -> set();
-	}
-*/
+
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**

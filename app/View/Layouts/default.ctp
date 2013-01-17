@@ -98,7 +98,7 @@ $scripts_for_layout
 
 </div>
 
-<div class="container"><img src="img/img03.png" width="1000" height="40" alt="" /></div>
+<div class="container"><?=$this->Html->image('img03.png', array('width' => '1000', 'height' => '40', 'alt'=>''));?></div>
 <!-- end #page -->
 
 

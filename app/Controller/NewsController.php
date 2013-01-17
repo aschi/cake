@@ -63,7 +63,6 @@ class NewsController extends AppController {
  * @return void
  */
 	public function view($id = null) {
-		$this->layout = 'administration'; 
 		$this->News->id = $id;
 		if (!$this->News->exists()) {
 			throw new NotFoundException(__('Invalid news'));

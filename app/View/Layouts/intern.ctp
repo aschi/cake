@@ -73,7 +73,7 @@ $scripts_for_layout
 
 </div>
 
-<div class="container"><?=$this->Html->image('../img/img03.png')?></div>
+<div class="container"><?=$this->Html->image('img03.png', array('width' => '1000', 'height' => '40', 'alt'=>''));?></div>
 <!-- end #page -->
 
 

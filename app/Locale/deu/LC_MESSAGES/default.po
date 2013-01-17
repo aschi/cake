@@ -237,3 +237,22 @@ msgstr "Kandidaten"
 msgid "Issue"
 msgstr "Kandidaten"
 
+#Pages
+msgid "Admin Edit Page"
+msgstr "Statische Seite bearbeiten"
+
+msgid "Pages"
+msgstr "Seiten"
+
+msgid "Content"
+msgstr "Inhalt"
+
+msgid "New Page"
+msgstr "Neue Seite"
+
+msgid "Admin Add Page"
+msgstr "Neue Seite"
+
+msgid "List Pages"
+msgstr "Seiten"
+
