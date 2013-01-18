@@ -43,11 +43,19 @@ class VotingsController extends AppController {
 	public function intern_view($id = null) {
 		$this->layout = 'intern'; 
 		
+		
+		$this->Voting->recursive = 1;
+		
 		$this->Voting->id = $id;
 		if (!$this->Voting->exists()) {
 			throw new NotFoundException(__('Invalid voting'));
 		}
+		
+		$user = $this -> Session -> read('Auth.User');
+		$va = $this->Voting->VotesAvailable->getVotesAvailable($user['id'], $id);
+						
 		$this->set('voting', $this->Voting->read(null, $id));
+		$this->set('votesavailable', $va['VotesAvailable']['novotes'] > 0 ? true : false);
 	}
 
 

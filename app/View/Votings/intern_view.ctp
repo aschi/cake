@@ -51,7 +51,15 @@
 						<th><?php echo __('Voting Result'); ?></th>
 					</tr>
 					<tr>
-						<td><?php echo $thisCount.'/'.$totalCount.' ('.round((100/$totalCount*$thisCount), 2).'%)';?></td>
+						<td>
+							<?php 
+								if($totalCount > 0 && $thisCount > 0){
+									echo $thisCount.'/'.$totalCount.' ('.round((100/$totalCount*$thisCount), 2).'%)';
+								}else{
+									echo '0/0 (0%)';
+								}
+							?>
+						</td>
 					</tr>
 					<?php endif; ?>
 					<?php if (isset($votesavailable) && $votesavailable): ?>

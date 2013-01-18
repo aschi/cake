@@ -64,7 +64,6 @@ class PlayersController extends AppController {
  * @return void
  */
 	public function view($id = null) {
-		$this->layout = 'administration'; 
 		$this->Player->id = $id;
 		if (!$this->Player->exists()) {
 			throw new NotFoundException(__('Invalid player'));

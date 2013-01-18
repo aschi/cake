@@ -8,6 +8,19 @@ App::uses('AppModel', 'Model');
  */
 class VotesAvailable extends AppModel {
 
+	public function addVotesAvailable($userid, $votingid, $novotes=3){
+		$this->create();
+			
+		$vaData = array(
+		    'VotesAvailable' => array(
+		    'user_id' => $userid,
+		    'voting_id' => $votingid,
+		    'novotes' => $novotes
+		));
+			
+		$this->save($vaData);
+	}
+
 	public function getVotesAvailable($userid, $votingid){
 		$searchConditions = array(
 		    'conditions' => array('VotesAvailable.user_id' => $userid, 'VotesAvailable.voting_id' => $votingid) //array of conditions

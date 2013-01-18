@@ -32,6 +32,26 @@ class User extends AppModel {
 	}
 
 	/**
+	 * initialize user
+	 * Add "Votes available" for all open votings
+	 */
+	public function initializeUser(){
+		App::import('Model', 'Voting');
+		App::import('Model', 'VotesAvailable');
+		
+		$voting = new Voting();
+		$votesAvailable = new VotesAvailable();
+		
+		$votinglist = $voting->find('all', array(
+			'conditions' => array('DATE(Voting.voting_start) <=' => date('Y-m-d'), 'DATE(Voting.voting_end) >=' => date('Y-m-d')), //array of conditions
+		));
+		
+		foreach($votinglist as $vt){
+			$votesAvailable->addVotesAvailable($this->id, $vt['Voting']['id'], 3);
+		}
+	}
+
+	/**
 	 * Validation rules
 	 *
 	 * @var array

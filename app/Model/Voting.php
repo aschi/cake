@@ -20,17 +20,7 @@ class Voting extends AppModel {
 		
 		
 		foreach($userList as $usr){
-			$votesAvailable->create();
-			
-			$vaData = array(
-			    'VotesAvailable' => array(
-		        'user_id' => $usr['User']['id'],
-		        'voting_id' => $this->id,
-		        'novotes' => 3
-		      	)
-			);
-			
-			$votesAvailable->save($vaData);
+			$votesAvailable->addVotesAvailable($usr['User']['id'], $this->id, 3);
 		}
 	}
 	

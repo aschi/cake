@@ -15,7 +15,7 @@
 		echo '</td><td>';
 		echo $this->Form->input('new_player_position', array('label'=>'Position nicht in Liste', 'div' => false));
 		echo '</td></tr><tr><td colspan="2">';
-		echo $this->Form->input('imagepath', array('class' => 'imageSelector'), array('label'=>'Profilbild (100x125px)', 'div'=>false));
+		echo $this->Form->input('imagepath', array('class' => 'imageSelector', 'label' => 'Portrait (125x100px)', 'div'=>false));
 		echo '</td></tr><tr><td colspan="2">';
 		echo $this->Form->input('description');
 		echo '</td></tr><tr><td colspan="2">';
